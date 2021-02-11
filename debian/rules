@@ -1,8 +1,7 @@
 #!/usr/bin/make -f
 # See debhelper(7) (uncomment to enable)
 # output every command that modifies files on the build system.
-#export DH_VERBOSE = 1
-
+export DH_VERBOSE = 1
 
 # see FEATURE AREAS in dpkg-buildflags(1)
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
@@ -13,13 +12,20 @@
 # package maintainers to append LDFLAGS
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
-
 %:
 	dh $@
 
-
-# dh_make generated override targets
-# This is example for Cmake (See https://bugs.debian.org/641051 )
-#override_dh_auto_configure:
-#	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
-
+override_dh_install:
+	mkdir -vp \
+		debian/cadexsdk/usr/lib/$(DEB_HOST_MULTIARCH)
+	cp -vdR \
+		lin64/gcc7/lib/libCadEx* \
+		lin64/gcc7/lib/libgeom.so \
+		lin64/gcc7/lib/libvis.so \
+		lin64/gcc7/lib/libsalome.so \
+		debian/cadexsdk/usr/lib/$(DEB_HOST_MULTIARCH)
+	mkdir -vp \
+		debian/cadexsdk-dev/usr/include
+	cp -vdR \
+		inc/cadex \
+		debian/cadexsdk-dev/usr/include

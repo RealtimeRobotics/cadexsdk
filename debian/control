@@ -8,17 +8,36 @@ Homepage: <insert the upstream URL, if relevant>
 #Vcs-Git: https://anonscm.debian.org/git/collab-maint/cadexsdk.git
 #Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/cadexsdk.git
 
+Package: cadexsdk
+Architecture: amd64
+Multi-Arch: same
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libfreeimage3,
+ libfreetype6,
+ libtbb2,
+Description: CAD Exchanger SDK (runtime files)
+ Software Libraries to Read, Write and Visualize 3D CAD files
+ .
+ CAD Exchanger SDK is a set of C++ / C# / Java libraries to develop fast and
+ robust 3D applications.
+ .
+ Read and write STEP, JT, Solidworks, IFC, FBX, and other CAD formats.
+ .
+ This package contains the shared libraries.
+
 Package: cadexsdk-dev
 Section: libdevel
 Architecture: any
 Multi-Arch: same
-Depends: cadexsdkBROKEN (= ${binary:Version}), ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
-
-Package: cadexsdkBROKEN
-Architecture: any
-Multi-Arch: same
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: cadexsdk (= ${binary:Version}), ${misc:Depends}
+Description: CAD Exchanger SDK (development files)
+ Software Libraries to Read, Write and Visualize 3D CAD files
+ .
+ CAD Exchanger SDK is a set of C++ / C# / Java libraries to develop fast and
+ robust 3D applications.
+ .
+ Read and write STEP, JT, Solidworks, IFC, FBX, and other CAD formats.
+ .
+ This package contains the development headers.
