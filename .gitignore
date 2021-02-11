@@ -1,0 +1,8 @@
+debian/.debhelper/
+debian/cadexsdk-dev.substvars
+debian/cadexsdk-dev/
+debian/cadexsdk.substvars
+debian/cadexsdk/
+debian/debhelper-build-stamp
+debian/files
+debian/tmp
