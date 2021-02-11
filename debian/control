@@ -1,7 +1,7 @@
 Source: cadexsdk
 Priority: optional
 Maintainer: Neil Roza <neil@rtr.ai>
-Build-Depends: debhelper (>= 10)
+Build-Depends: debhelper-compat (= 12)
 Standards-Version: 4.1.2
 Section: libs
 Homepage: <insert the upstream URL, if relevant>
