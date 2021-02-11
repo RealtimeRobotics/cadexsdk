@@ -1,3 +1,11 @@
+cadexsdk (3.9.1-1ubuntu1) bionic; urgency=medium
+
+  * ed debian/rules: debhelper -> debhelper-compat
+  * rm debian/compat
+  * ed debian/control: debhelper-compat: 11 -> 12
+
+ -- Neil Roza <neil@rtr.ai>  Thu, 11 Feb 2021 22:45:57 +0000
+
 cadexsdk (3.9.1-1) bionic; urgency=medium
 
   * Initial release
