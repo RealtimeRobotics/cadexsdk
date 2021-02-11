@@ -1,0 +1,24 @@
+Source: cadexsdk
+Priority: optional
+Maintainer: Neil Roza <neil@rtr.ai>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Section: libs
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: https://anonscm.debian.org/git/collab-maint/cadexsdk.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/cadexsdk.git
+
+Package: cadexsdk-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: cadexsdkBROKEN (= ${binary:Version}), ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
+
+Package: cadexsdkBROKEN
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
