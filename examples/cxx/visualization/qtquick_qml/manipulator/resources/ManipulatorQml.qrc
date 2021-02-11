@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/ManipulatorWindow.qml</file>
+    </qresource>
+</RCC>

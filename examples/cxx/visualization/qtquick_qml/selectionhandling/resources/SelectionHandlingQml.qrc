@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/SelectionHandlingWindow.qml</file>
+    </qresource>
+</RCC>

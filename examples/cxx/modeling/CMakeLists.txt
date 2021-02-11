@@ -1,0 +1,7 @@
+add_subdirectory("assembly")
+add_subdirectory("brep")
+add_subdirectory("brepfeatures")
+add_subdirectory("brepprimitives")
+add_subdirectory("elementremoval")
+add_subdirectory("metadata")
+add_subdirectory("poly")

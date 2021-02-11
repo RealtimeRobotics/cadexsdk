@@ -1,0 +1,17 @@
+apply from: '../../cadex_example_template.gradle'
+apply plugin: 'java'
+
+compileJava {
+    options.compilerArgs << '-Xlint'
+}
+
+dependencies {
+    implementation "cadex:CadExCoreJava@jar"
+    implementation "cadex:CadExSLDJava@jar"
+    implementation "cadex:CadExVRMLJava@jar"
+}
+
+run {
+    args = ["$cadex_examples_models_dir/CAPACITOR.SLDPRT", "$projectDir/CAPACITOR.wrl"]
+}
+

@@ -1,0 +1,10 @@
+apply from: '../../cadex_example_template.gradle'
+
+dependencies {
+    implementation "cadex:CadExCoreJava@jar"
+    implementation "cadex:CadExMeshJava@jar"
+}
+
+run {
+    args = ["$cadex_examples_models_dir/LeverArm.xml"]
+}

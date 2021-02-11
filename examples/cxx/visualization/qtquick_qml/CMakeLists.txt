@@ -1,0 +1,7 @@
+add_subdirectory("baseviewer")
+add_subdirectory("customizedviewer")
+add_subdirectory("exploder")
+add_subdirectory("manipulator")
+add_subdirectory("measurements")
+add_subdirectory("pmiviewer")
+add_subdirectory("selectionhandling")

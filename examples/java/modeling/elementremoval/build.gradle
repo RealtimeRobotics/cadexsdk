@@ -1,0 +1,9 @@
+apply from: '../../cadex_example_template.gradle'
+
+dependencies {
+    implementation "cadex:CadExCoreJava@jar"
+}
+
+run {
+    args = ["$cadex_examples_models_dir/as1.xml", "as1-edited.xml", "nut"]
+}

@@ -1,0 +1,26 @@
+var classcadex_1_1_base___writer_parameters =
+[
+    [ "ImplPtrType", "classcadex_1_1_base___writer_parameters.html#a407b0a1bd14b4091576064812444f9fd", null ],
+    [ "Base_WriterParameters", "classcadex_1_1_base___writer_parameters.html#af53170b58fa8c6ed77755c1368f62b1f", null ],
+    [ "Author", "classcadex_1_1_base___writer_parameters.html#a86de9f0e87d061107ccc38e9f8540883", null ],
+    [ "Author", "classcadex_1_1_base___writer_parameters.html#a42008f26015e5ed54d38de5e7050ebae", null ],
+    [ "Impl", "classcadex_1_1_base___writer_parameters.html#a7d4ff265b6f58132635817962ae38fe6", null ],
+    [ "Impl", "classcadex_1_1_base___writer_parameters.html#af4b60f0ac7f196ead285067d6f6f4947", null ],
+    [ "LengthUnit", "classcadex_1_1_base___writer_parameters.html#acab15792bfa853bcc6728011a5d63aed", null ],
+    [ "LengthUnit", "classcadex_1_1_base___writer_parameters.html#ae4f909163bb341c22ef4c9ebf58c528c", null ],
+    [ "Organization", "classcadex_1_1_base___writer_parameters.html#a05e46cabb4143ad548f80b8172f8a5fc", null ],
+    [ "Organization", "classcadex_1_1_base___writer_parameters.html#aa86512d975879ac6a288837657a28133", null ],
+    [ "OriginatingSystem", "classcadex_1_1_base___writer_parameters.html#a3bccabb4b04d6ef2135654d75a3c1c72", null ],
+    [ "OriginatingSystem", "classcadex_1_1_base___writer_parameters.html#a3776a972e5e0bebead78b4c24636e00e", null ],
+    [ "PreferredLOD", "classcadex_1_1_base___writer_parameters.html#acb78f7c80aab56f142b13ba8427c45ae", null ],
+    [ "PreferredLOD", "classcadex_1_1_base___writer_parameters.html#a0bbfc5d1c8bc52bf6a51631280d96ed8", null ],
+    [ "SharedImpl", "classcadex_1_1_base___writer_parameters.html#a962f60a1f87bdc9f748ea081f855ce8e", null ],
+    [ "WriteBRepRepresentation", "classcadex_1_1_base___writer_parameters.html#a2d37a48a7071ed8a607fc66795d55d0b", null ],
+    [ "WriteBRepRepresentation", "classcadex_1_1_base___writer_parameters.html#a0fdcacab81a6338b86b4fb1336dac856", null ],
+    [ "WritePMI", "classcadex_1_1_base___writer_parameters.html#ae48ca4428a6961a453d2d967245ef876", null ],
+    [ "WritePMI", "classcadex_1_1_base___writer_parameters.html#af4095fb6a120b984c420bcc53085a9fa", null ],
+    [ "WritePolyRepresentation", "classcadex_1_1_base___writer_parameters.html#a6efed0af90fe26871193460a1bd994de", null ],
+    [ "WritePolyRepresentation", "classcadex_1_1_base___writer_parameters.html#a886b7b0d4f640ed1802ce5b5f7e7403c", null ],
+    [ "WriteTextures", "classcadex_1_1_base___writer_parameters.html#a2b45b21f4d0229f02771464745966a5f", null ],
+    [ "WriteTextures", "classcadex_1_1_base___writer_parameters.html#a9b0d3ff794f98b6b01665173e40595e7", null ]
+];

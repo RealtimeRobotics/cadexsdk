@@ -1,0 +1,76 @@
+apply plugin: 'application'
+
+def cadex_root_dir = "$projectDir/../../../.."
+def cadex_lib_path = getLibraryPath()
+
+task copyLicense(type: Copy) {
+    from file("$cadex_root_dir/examples/java/LicenseKey.java")
+    into file("$projectDir/cadex")
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs += ["$projectDir"]
+            srcDirs += ["$projectDir/cadex"]
+        }
+    }
+}
+
+compileJava {
+    dependsOn(copyLicense)
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+repositories {
+    flatDir {
+        dirs "$cadex_root_dir/java"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': project.name
+    }
+}
+
+run {
+    main = project.name
+    mainClassName = project.name
+    classpath(sourceSets.main.runtimeClasspath)
+    environment("PATH", "$cadex_lib_path")
+    jvmArgs = ["-Djava.library.path=$cadex_lib_path"]
+}
+
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+
+def getLibraryPath() {
+    def platform = ''
+    def current_compiler = ''
+    def binary_folder = ''
+    def path_variable_name = ''
+
+    if (DefaultNativePlatform.getCurrentOperatingSystem().isWindows()) {
+        platform           = 'win64'
+        current_compiler   = 'vc14.1'
+        binary_folder      = 'bin'
+    } else if (DefaultNativePlatform.getCurrentOperatingSystem().isLinux()) {
+        platform           = 'lin64'
+        current_compiler   = 'gcc5'
+        binary_folder      = 'lib'
+    } else if (DefaultNativePlatform.getCurrentOperatingSystem().isMacOsX()) {
+        platform           = 'mac64'
+        current_compiler   = 'clang7'
+        binary_folder      = 'lib'
+    }
+    if (project.hasProperty('compiler')) {
+        current_compiler = compiler
+    }
+    return "$projectDir/../../../../${platform}/${current_compiler}/${binary_folder}";
+}
+
+ext {
+    cadex_root_dir = "$cadex_root_dir"
+    cadex_examples_models_dir = "${cadex_root_dir}/examples/models"
+}

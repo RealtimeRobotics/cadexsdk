@@ -1,0 +1,2597 @@
+CAD Exchanger 3.9.1 December 2020
+
+    Highlights:
+    - Added import of new formats: 3DPDF, PRC.
+    - Added export of a new format - USD.
+    - Visualization toolkit can now be used in Windows Forms .NET applications.
+
+    GUI:
+    - Text in graphical PMI that contains Unicode characters is now displayed correctly.
+    - Fixed startup problem on macOS Big Sur.
+    - Fixed incorrect centroid computation for assemblies and multi-body parts.
+    - Fixed multiple issues in Latest news block.
+
+    GUI/Android:
+    - Disabled in-app purchases to make the app free.
+    - Import limit increased to 25 MB for all supported formats.
+    - Free export to the following formats: STL, OBJ, VRML, STEP, IGES, CAD Exchanger native.
+    - Fixed flickering when the splash screen is shown during app loading.
+    - Updated application logo.
+
+    SDK/API:
+    - Added API for access and modification of objects UUID.
+    - Fixed WritePMI() missing from Base_WriterParameters in C# and Java APIs.
+
+    SDK/Visualization toolkit:
+    - Fixed issues with View Cube's highlights in the WPF viewport.
+    - Fixed an issue with View Cube still being displayed when showing Viewport, despite having been
+      disabled beforehand.
+    - Fixed a data race while displaying scene nodes created from the same source.
+    - Fixed the visibility of firstly displayed scene nodes defaulting to 'hidden'.
+
+    IGES:
+    - Added support of writing to arbitrary streams in addition to files.
+
+    ACIS:
+    - Fixed import of specific cases of faces on spherical and conical surfaces.
+
+    Parasolid format (also affects JT, NX and Solidworks formats):
+    - Added support of colors attached to product structure elements (bodies, instances, assemblies).
+    - By default, files are now written in Parasolid v12.1 (schema 12103) instead of v12 (schema 12006).
+    - Added support of Parasolid version 32.1.
+    - Fixed import and export of names with Unicode characters.
+
+    Rhino:
+    - Introduced import and export of Rhino 7 files.
+    - Improved export of different cases of geometry (small trimmed curves and surfaces, B-Spline curves,
+      surfaces of revolution with periodic trimmed basis curves).
+    - Added processing of offset surfaces in import.
+    - Improved export of materials attached to shapes of polygonal representation.
+    - Added support of color for subshapes in B-Rep representations in import and export.
+
+    Creo:
+    - Added support for Creo 6 import.
+    - Added initial support for Creo 7 import.
+
+    CATIA:
+    - Added initial support of colors import for versions V5R20-V5R22.
+    - Improved detection of edge limits (on revolution surfaces, among others).
+    - Vastly improved the import of vertex fillet surface patches.
+
+    STEP:
+    - Added import of geometrically_bounded_surface_shape_representation entities.
+    - Improved the process of collecting saved views during semantic PMI import.
+    - Fixed regression in reading of composite geometric tolerances during semantic PMI import.
+    - Fixed crash in appearance conversion caused by unsupported presentation_style_by_context entity.
+
+    DWG:
+    - Fixed import of colors in specific cases.
+
+    Unity module:
+    - Improved performance of import.
+    - Improved camera control logic.
+    - Now CAD Exchanger can also be used to load 3D models into Unity in Edit mode.
+    - Added progress status support.
+    - Added support of exporting GameObjects to formats supported by CAD Exchanger.
+
+CAD Exchanger 3.9.0, September 2020
+
+    Highlights:
+    - Added import of new formats: CATIA V5, Autodesk DWG and U3D.
+    - Added a new SDK module - Advanced Geometry - containing algorithms for mesh and B-Rep simplification.
+
+    GUI:
+    - Enabled application to run without wrapper shell script on Linux.
+    - Changed package format from zip to tar.xz on Linux.
+    - macOS DMG and app are now signed and approved by Apple.
+    - Enabled manual license activation from start page (e.g. when evaluation expired).
+
+    SDK:
+    - Changed Linux, macOS, Android package format from zip to tar.xz for more predictable unpacking
+      behavior.
+    - Native libraries on Linux and macOS now contain RPATH info, requiring less setup to run the client
+      application.
+    - Enabled progress status update in ModelAlgo_BRepMesher::Compute() overloads.
+
+    SDK/API:
+    - Added API for computing volume of meshes.
+    - Added API to retrieve geometric errors that occurred during export: Base_WriterStatistics and
+      Base_ExportError.
+    - Added new public exception BaseError_UnsupportedFileVariant indicating that a model is stored
+      in a particular variant of the format (e.g. binary vs text) that is not supported yet.
+    - Bounding boxes are now calculated from B-Rep representation more precisely.
+    - Fixed crashes in B-Rep Representation Examples when encountering degenerated edges.
+
+    SDK/Visualization Component:
+    - Reduced memory consumption.
+
+    Mesher:
+    - Fixes for crashes and various minor issues.
+
+    Multiple formats (SolidWorks, STEP etc):
+    - Improved performance of merging vertex normals' arrays when making meshes watertight.
+    - Fixed import of some edges on periodic curves.
+    - Fixed import of topologically closed edges on non-closed geometry.
+
+    ACIS:
+    - Improved support of ACIS ASM binary files.
+
+    Creo:
+    - Importer now throws BaseError_UnsupportedVersion when file of unsupported version is read.
+
+    DXF:
+    - Fixed hang up during import of binary files; now the BaseError_UnsupportedFileVariant exception
+      is thrown.
+
+    FBX:
+    - Improved export of materials for better compatibility with receiving applications
+      (Unity in particular).
+    - Fixed duplication of shared materials in import.
+    - Fixed loss of subshapes' materials in export.
+
+    IFC:
+    - Fixed export of measurement units.
+    - Fixed incorrect transformations in export when non-default length unit was set.
+
+    IGES:
+    - Fixed an issue where children of non-root Group Entity occurred in the model twice.
+    - Fixed import of models containing entities with non-standard forms.
+    - Edges containing non-matching 2d and 3d curves are now imported correctly.
+
+    JT:
+    - Improved parsing of files using non-standard sequence of bytes as separator of JT elements.
+
+    Rhino:
+    - Improved accuracy of import of models written in units other than millimeters.
+    - Fixed export of small B-Spline curves.
+    - Fixed import of degenerated B-Spline curves.
+
+    STEP:
+    - Reversed periodic trimmed curves are now correctly imported.
+    - When components don't have their own names, parent instance names are now considered during
+      export in per part and per assembly modes.
+    - Fixed export of plane angle units.
+
+    SolidWorks:
+    - Added reading of polygonal representations for SolidWorks 2012 and 2013 files.
+    - Improved performance of polygonal representation import.
+
+    Unity module:
+    - Added import parameter allowing to assign custom shader to imported model.
+    - Added import parameter allowing to scale the model mid-import.
+    - Improved conversion of appearances.
+    - Added support for sharing materials and textures.
+    - Reduced memory footprint of created GameObject.
+
+    X3D:
+    - Fixed application of transformation with negative scale factor in import.
+    - Fixed a crash when saving external reference paths.
+
+
+CAD Exchanger 3.8.1, June 2020
+
+    Highlights:
+    - Added import of a new format - X3D.
+    - Added the CadExUnity module for integration with Unity game engine. Conversion of geometry,
+      product structure, appearances, and graphical PMI to GameObject's is supported.
+
+    GUI:
+    - Now if a Structure tree node has the Warning status, its parents will have it too.
+    - Fixed problem with activation of the same serial number after renewal.
+    - Disabled semi-transparency effect on macOS to avoid the screen capture warning.
+    - Added support of site-wide licenses and licenses for servers.
+    - Added ability to transfer the license to another computer.
+    - Improved performance with selection scene objects when the Structure panel is closed.
+
+    CLI:
+    - Added error output on failed screenshot generation.
+
+    SDK/API:
+    - Added API to remove instances from assemblies and roots from the model.
+    - Extended API of ModelData_PMIDimensionComponent and ModelData_PMIGeometricToleranceComponent
+      to support additional information about PMI entities.
+    - Extended API of ModelData_WriterParameters to enable saving models in CDXFB format.
+
+    SDK/Visualization Component:
+    - Added selection manager for programmatic selection of nodes.
+    - Added two separate selection states - Selected/Deselected, that reflect changes
+      from the previous selection.
+    - Fixed crash in environment with OpenGL drivers of versions lower than supported (2.1).
+      Now an exception is thrown in such a case.
+    - Added examples demonstrating offscreen rendering (e.g. for screenshot generation).
+
+    Mesher:
+    - Fixed an issue where non-watertight mesh would be produced from closed solid body.
+    - Fixes for various other issues and crashes.
+
+    ACIS:
+    - Added support of several new spline subtypes.
+
+    Creo:
+    - Importer doesn't convert construction geometry now.
+    - Added import of sheet bodies.
+
+    IGES:
+    - Fixed a crash during import of models composed of Trimmed Surfaces with boundary
+      segments on singularities.
+
+    JT:
+    - Added support for switch node.
+    - Added ability to save filename of external reference for every SGE.
+    - Fixed an issue where a model failed to export to bare filename path like "file.jt".
+
+    Parasolid format (also affects JT, NX and Solidworks formats):
+    - Significantly improved import of procedural geometry entities (INTERSECTION curve,
+      BLENDED_EDGE and BLEND_BOUND surfaces).
+    - Ensured determinism when importing shared edges without 3d curve in parallel.
+    - Fixed an extremely rare crash when processing INTERSECTION_CURVE on BLEND_BOUND surface.
+
+    SolidWorks:
+    - Added support of reading SolidWorks 2021 (only B-Rep data).
+    - Improved import of models of versions prior to SolidWorks 2006.
+    - Added reading of polygonal representations for versions 2005, 2006, 2009 - 2011, 2014, 2015, 2017.
+    - Improved parsing of tessellation data in SolidWorks 2018-2020 files.
+    - Improved external files search mechanism.
+    - Fixed a crash during product structure reading.
+    - Fixed a problem with reading model without polygonal representation.
+    - Fixed parsing for rare case of object header.
+
+    STEP:
+    - Fixed parsing of single quotes in strings.
+    - Fixed formatting of single quotes in strings. They are now correctly escaped as prescribed
+      by specifications.
+    - Added ability to save filename of external reference for every SGE.
+    - "Id" entity field is now preferred for Part and assembly names for greater alignment with
+      other reading software.
+    - Added reading of dimension type and tolerance zone form in semantic PMI.
+
+    STL:
+    - Extended parser capabilities to read text STL files that contain non-UTF8 characters.
+
+
+CAD Exchanger 3.8.0, March 2020
+
+    Highlights:
+    - Added import of new formats - PTC Creo, Siemens NX, DXF, 3MF.
+    - Enabled reading of polygonal representations saved in SLDASM files for Solidworks version 2018-2020.
+    - Significantly improved C# and Java API.
+    - Added export of semantic PMI and PMI-subshape associations to JT format.
+    - Added support of displaying graphical PMI elements to SDK Visualization component.
+
+
+    GUI:
+    - Fixed a crash when clicking a dimension after BRep representation has been removed.
+    - Disabled 'Export' button when there's nothing to export.
+    - Improved automatic Host ID detection during online activation.
+    - Importing files with double click on macOS now clears the current document.
+    - Added "Save vertex normals" setting to X3D exporter's options menu.
+    - Added ability to display a SolidWorks model with missing external files.
+
+    SDK:
+    - Ported Java libraries to Linux and Android.
+
+    SDK/Visualization Component:
+    - Added support of displaying graphical PMI elements.
+    - Added 'exploded view' feature, which allows to display an assembly with components separated.
+    - Fixed a crash when a viewport is not attached to a scene.
+
+    SDK/API:
+    - Added a convenience ModelData_BodyList::Append() overload accepting a body list.
+    - ModelData_ConicalSurface::Angle() has been deprecated. The SemiAngle() should be used instead,
+      due to being more aptly named for the value it returns.
+    - License key activation now checks whether the key is applicable for current development configuration
+      (version, compiler, OS, etc.).
+    - Added std::ostream insertion operator (<<) for string classes (Base_String, Base_UTF16String).
+    - Significantly improved C# and Java API:
+        - Fixed sporadic crashes in C# code built in Release mode due to aggressive garbage collector
+          behavior.
+        - Changed C# and Java API to return all objects by copy.
+          Special setter methods should be used to change original value.
+        - Changed C# and Java API to accept/return explicit "null" instead of objects
+          with internal "null" state (when IsNull() method returns true).
+        - Removed unused/incorrect classes and methods.
+        - Added toString() method for string classes.
+        - Added API for access and modification of textures.
+        - Added missed Java visualization API (in particular for offscreen rendering).
+    - Refactored PMI examples to output graphical and semantic PMI information in more structured way.
+
+    Mesher:
+    - Improved accuracy of generated mesh on certain types of geometries.
+
+    FBX:
+    - Fixed incorrect export of product structure when parts have no representations.
+    - Fixed export failure when part contains multiple triangle sets.
+    - Fixed an issue in import where model's components had incorrect location and/or scale.
+
+    IFC:
+    - Improved performance of parser and formatter.
+
+    JT:
+    - Added export of semantic PMI and PMI-subshape associations.
+    - Improved import of files with inconsistent topology (Part Node element contained a nested Part Node element).
+
+    Parasolid format (also affects JT, NX and Solidworks formats):
+    - Improved import of shapes with SP_CURVE referring to a surface distinct from parent face's one.
+    - Improved import of swept surfaces using reversed base curves.
+    - Improved import of surfaces of revolution to prevent self-intersection.
+    - Ensured determinism when importing closed edges without vertices in parallel.
+    - Fixed potential stack overflow on very large files with long attribute chains.
+    - Improved parser to parse text files violating requirements to double numbers formatting.
+    - Enabled import of bodies of 'general' type.
+    - Ensured determinism when importing closed edges without vertices in parallel.
+    - Fixed potential stack overflow on very large files with long attribute chains.
+    - Improved parser to parse text files violating requirements to double numbers formatting.
+    - Improved import of procedural geometry (intersection curves and rolling ball surfaces).
+
+    SolidWorks:
+    - Enabled reading of polygonal representations saved in SLDASM files for version 2018 - 2020.
+    - Importer now resolves the most up-to-date set of assembly components.
+    - Fixed incorrect import of colors.
+
+    STEP:
+    - Improved performance of parser and formatter.
+    - Fixed incorrect reading of some values of semantic PMI.
+    - Fixed a bug when CAD Exchanger crashes accidentally during STEP export.
+    - Added support of degenerate_toroidal_surface.
+    - Fixed rare cases of incorrect import of transformations.
+
+    X3D:
+    - Added export parameter controlling export of normals.
+
+
+CAD Exchanger 3.7.1, December 2019
+
+    GUI:
+    - Added support of arm64-v8a architecture on Android.
+    - Changed minimal supported Android version to Android 5.0.
+    - Added toolbar for most frequently used features.
+    - Added "Maximum edge length" option in "Visualization mesher" options that allows
+      to set an upper bound for triangle edges' lengths.
+    - Added format filters to export panel.
+    - Added warning to export panel for Poly-to-BRep export scenario.
+    - Added notification about missing external references.
+    - Missing external references are now highlighted in the Product structure panel.
+    - Added ability to open models with double click on macOS.
+    - Added file association for formats supported by CAD Exchanger on macOS.
+    - Added support of Unicode characters in the path to the license file during activation.
+    - Fixed crash when using Explode tool without any model imported.
+    - Fixed view cube being unresponsive to clicks on high DPI displays.
+
+    SDK:
+    - Added support of arm64-v8a architecture on Android (clang 7, NDK r18b).
+    - Removed redundant symbol exports from binaries.
+    - Extended API (ModelData_Edge, ModelData_Vertex) to support more flexible bottom-up
+      creation of B-Rep shapes.
+    - Added ability to query readers for information about external files that weren't found
+      during import.
+    - Fixed exception during creation of Base_UTF16String from locale-dependent raw string.
+    - Added a new visualization tool - manipulator - which enables users to move/rotate
+      graphical objects on the scene.
+    - Fixed an issue where viewport didn't respect scale factor.
+    - Added a new export parameter (Base_WriterParameters::WritePMI()) controlling whether
+      Product and Manufacturing Information (PMI) should be stored into the file.
+    - Fixed a crash during scene graph traversal with ElementVisitor using C# interface.
+    - Extended C# and Java APIs to enable traversal and retrieval of graphical and semantic
+      PMI from the model.
+    - Added examples demonstrating traversal and reading of graphical and semantic PMI.
+    - Added support of Gradle build system for Java examples.
+    - Added upgrade expiration check to C++ license key files.
+
+    Meshers:
+    - Introduced a new parameter to visualization mesher - maximum triangle edge length.
+
+    ACIS:
+    - Fixed import of rotation spline surface with scale factor different from default.
+
+    FBX:
+    - Added export of line colors.
+    - Fixed addition of redundant scene graph elements in export.
+    - Fixed an issue that resulted in exported model having an incorrect size.
+
+    GLTF:
+    - Enabled export of textures.
+
+    IFC:
+    - Enabled export IFC version 2x3.
+    - Improved import of IfcBooleanResult entities.
+    - Enabled import of models without structure entities (IfcSite, IfcBuilding, etc.).
+    - Enabled support of IfcRoundedRectangleProfileDef entities.
+    - Fixed a crash during import of file containing IfcCircleProfileDef with zero radius.
+    - Fixed an issue where the body color was lost after clipping via IfcBooleanClippingResult entity.
+
+    JT:
+    - Fixed regression which resulted in loss of transformations attached to Partition nodes.
+    - Added export of graphical PMI.
+
+    Parasolid format (also affects JT and Solidworks formats):
+    - Enabled parsing of Parasolid files containing user-defined types and user-defined fields.
+    - Fixed export of parts with transparency.
+
+    Rhino:
+    - Fixed export of faces occupying multiple periods on periodic surfaces.
+
+    STEP:
+    - Added export of graphical PMI and PMI associations.
+    - Enabled import of MAPPED_ITEM entity (AP203), used as element of product structure.
+    - Significantly improved the performance of import of FACETED_BREP representations.
+    - Enabled import of faces containing VERTEX_LOOPs.
+    - Improved compatibility of exported STEP files containing sheet bodies with other viewers.
+    - Improved parser stability.
+    - Fixed crash caused by edges with zero length.
+    - Fixed an access violation during conversion of oriented_edge entities that don't contain
+      edge curves.
+    - Fixed export of numbers in scientific notation.
+
+    Solidworks:
+    - Added import of bodies names.
+    - Improved progress status and import cancellation behavior.
+    - Fixed incorrect default configuration selection.
+    - Fixed an issue where extra bodies were imported.
+    - Enabled import of BRep representations from files created in SolidWorks 2005 and older.
+
+    VRML:
+    - Fixed an issue where box primitive was imported with incorrect transformation.
+    - Added export of mesh colors.
+    - Enabled import of files with UTF-8 BOM.
+    - Fixed a hang-up that occurred when reading invalid files.
+
+    X3D:
+    - Fixed an issue where DEF entity was exported with incorrect name.
+    - Fixed an issue with MetadataString being exported incorrectly.
+
+
+CAD Exchanger 3.7.0, September 2019
+
+    General:
+    - Added export of a new format - GLTF.
+    - Added import and export of a new format - Collada.
+    - Added export of a new format - DXF.
+    - Added import of a new format - 3DS.
+
+    GUI:
+    - Fixed default Mefisto mesher settings in order to avoid unnecessarily long computation time.
+    - Fixed progress bar showing 100% at the start of heavy operations.
+    - Enabled precise specification of angular deviation for better visualization mesh granularity control.
+    - Fixed an issue where IGES Write mode export setting was ignored.
+    - Fixed display of parts with transparency.
+    - Improved user experience with licenses.
+    - Disabled domain licenses support.
+    - Fixed an issue where only a few formats were selectable on Export panel.
+
+    SDK:
+    - Added API to retrieve triangulation of a single face.
+    - Added multiple C# and Java examples demonstrating SDK functionality.
+    - Added support of grid plane to visualization component.
+    - Added support of trihedron to visualization component.
+    - Fixed missing Accept methods for scene graph elements in Java API.
+    - Reduced the number of libraries distributed in the SDK package.
+    - Changed format of SDK license keys to provide more uniform experience across all supported languages.
+
+    Multiple formats (ACIS, IGES, JT, Parasolid, Rhino, STEP, etc):
+    - Edge curve representations (3D and 2D) ranges are now exactly aligned where previously they
+      could be within a parametric tolerance.
+
+    Meshers:
+    - Fixed issue in computational meshers which affected solid and sheet bodies containing
+      multiple faces: with MergeFaceSets parameter set to false the entire body mesh was returned
+      for each individual face.
+    - Fixed sporadic crash in OpenFOAM exporter in Netgen mesher.
+
+    ACIS:
+    - Improved importer robustness with respect to invalid edge curve parameters specified in the file.
+    - Fixed import of left-handed helix curves.
+    - Fixed import of helix curves with non-zero taper values.
+    - Fixed import of sweepsur surfaces with profile or path defined via straight line.
+
+    IGES:
+    - Fixed loss of edges due to incorrect parameter limits of B-Spline curves.
+    - Improved quality of bicubic spline surface import.
+
+    JT:
+    - Added import of semantic PMI.
+
+    Solidworks:
+    - Added Linux and Mac support.
+    - Expanded the number of supported files.
+
+    STEP:
+    - Added export of parametric curves.
+    - Added import of semantic PMI.
+
+    Parasolid format (also affects JT and Solidworks format):
+    - Improved performance of procedural geometry import.
+    - Added support of Parasolid versions 31.1 and 32.
+    - Fixed a hang-up during toroidal surface conversion.
+
+
+CAD Exchanger 3.6.0, June 2019
+
+    GUI:
+    - Added support of PMI associations - when PMI element is selected, associated B-Rep subshapes are highlighted.
+    - Enabled support of Unicode characters in filenames in import and export.
+    - Added an option to perform Delayed Display of the model during import. In this mode the parts and assemblies
+      are imported only once they are selected in the Structure panel.
+
+    CLI:
+    - Enabled support of Unicode characters in filenames passed as arguments.
+
+    SDK:
+    - Added functionality to associate PMI elements with B-Rep subshapes.
+    - Added API for access and modification of textures.
+    - Added a new import parameter (Base_ReaderParameters::ReadPMI()) controlling whether
+      Product and Manufacturing Information (PMI) should be read from the file.
+    - Introduced visualization components for QtQuick/QML and .NET/WPF.
+    - Added multiple C++ examples demonstrating SDK functionality.
+    - Fix data race in import of layers.
+    - Fixed a crash in C# when a scene graph element was saved in ModelData_Model::ElementVisitor
+      subclasses for later use.
+
+    ACIS:
+    - Improved parser performance.
+    - Fixed parsing of .sab files written with ACIS R28.
+    - Fixed parsing of .sab files containing sweepsur subtype.
+    - Fixed parsing of .sab files containing short strings of lengths greater than 127 characters.
+    - Fixed parsing specific cases of files containing APATTERN enities in .sat and .sab files.
+    - Fixed parsing and conversion of strings containing characters with codes greater than 127
+      (including Unicode replacement characters written in UTF-8 encoding).
+    - Added import of helix curves used as edge curves.
+    - Improved import of files with incorrect edge curve parameter range (typically generated by
+      Solidworks in ACIS R27 format).
+    - Reduced memory footprint in import and export.
+    - Improved importer robustness to convert non-conformant ACIS files generated by PRO/ENGINEER.
+
+    FBX format:
+    - Added import of FBX.
+
+    Parasolid format (also affects JT format):
+    - Added support of parsing Parasolid files written in 'bare binary' format.
+    - Revamped import of procedural geometry entities (INTERSECTION curve, BLENDED_EDGE and BLEND_BOUND surfaces).
+      The new implementation provides greater quality and performance compared to previous one.
+
+    JT:
+    - Added import of PMI associations.
+    - Enabled import of textures in JT9 and JT10 format.
+    - Improved parsing of data encoded with bitlength codec in JT10 files.
+    - Reduced memory footprint when exporting large models.
+    - Fixed parsing JT8.x files containing Lossless Compressed Raw Vertex Data with texture coordinates.
+    - Fixed parsing of attributes (Draw Style, Infinite and Point lights) for various JT versions.
+    - Added export of line properties component of appearance into JT LineStyle attribute.
+    - Fixed export of meshes containing fully degenerated triangles (when all three nodes share
+      the same index).
+    - Fixed parsing of non-text polyline data in PMI elements in JT10 files.
+    - Fixed parsing of polyline data and fonts in PMI elements in JT9 files.
+    - Fixed parsing of point set nodes in JT8.x files.
+
+    Mesher:
+    - Fixed meshing of faces where inner wire intersects with outer wire.
+    - Enabled processing of free edges (not belonging to any faces).
+    - Improved robustness on complex geometry.
+    - Fixed multiple potential hang-ups due to incorrect (e.g. self-intersecting) wires.
+
+    OBJ:
+    - Improved import of textures: texture parameters are taken into account, improved file search mechanism,
+      added other types (specular, emissive, etc).
+
+    Rhino:
+    - Improved import of textures (see details in OBJ section).
+
+    STEP:
+    - Added import of PMI associations.
+    - Added import of polylines.
+
+    X3D format:
+    - Added export of user-defined properties.
+
+
+CAD Exchanger 3.5.3, March 2019
+
+    General:
+    - Added export of a new format - FBX version 2012, 2014, 2016 and 2019.
+
+    SDK:
+    - Extended API to extract min and max values of curvature of surface.
+    - Introduced exceptions as an opt-in error handling mechanism.
+    - Enabled forwarding of LicenseManager_LicenseError exception to C# and Java.
+    - Fixed ModelAlgo_BRepFeatures missing from C# and Java interfaces.
+    - Added API for applying ModelData_Transformation to ModelData_Shape.
+
+    JT:
+    - Enabled parsing of JT 10.3 and 10.4 files.
+    - Added support of writing to arbitrary streams in addition to files.
+    - Fixed parsing of textures, vertex color arrays and vertex texture coordinates.
+    - Fixed import of vertex colors in JT8 files with Component Arrays Flag equal to 0.
+    - Enabled import of textures in JT8 format.
+    - Improved robustness in converting PMI reference frames containing denormalized values.
+    - Added support of writing to arbitrary streams in addition to files.
+    - Fixed import of Primitive Set Shape elements containing multiple primitives.
+    - Fixed import of tri-prism primitive shape.
+    - Fixed adding of color or UV coordinate indices in case where the original JT mesh does not have
+      colors or textures.
+    - Fixed import and export of date properties where the day value was previously incorrectly offset by one.
+    - Deprecated JT_WriterParameters::MesherParameters() (but kept for binary compatibility) to ensure
+      consistency with other formats (such as STL, VRML, X3D or Rhino). If there is no explicit
+      polygonal representation then it will be created on the fly with the 'fine' granularity (the
+      previous default was 'coarse'). If another granularity is desired then it must be explicitly added
+      before exporting.
+    - Fixed regression that might cause incomplete displaying of PMI.
+
+    Parasolid format (also affects JT format):
+    - Fixed parsing escape characters.
+    - Fixed parsing .x_t files which use CR characters as line endings.
+
+    SolidWorks:
+    - Added support for SolidWorks 2019.
+
+    Mesher:
+    - Improved stability of meshing for some specific types of faces.
+
+    Rhino:
+    - Introduced support of Rhino 6 files.
+    - Improved processing of B-spline curves and surfaces with some weights equal to 0.
+
+    STEP:
+    - Added support of writing to arbitrary streams in addition to files.
+
+    X3D:
+    - Fixed crash in X3D_Writer::WriteFile() when exporting an empty model.
+
+CAD Exchanger 3.5.2, December 2018
+
+    GUI:
+    - Re-designed the export dialog to be more intuitive and easier to use.
+    - Fixed hang-up during activation with a license file.
+    - Improved existing and added new messages related to licensing.
+    - Improved robustness of the node-locked licenses by making sure the license is tied to a
+      physical network device rather than a virtual one.
+    - Added notification which appears at the end of upgrade period and informs a user about available
+      renewal subscription discount.
+    - Fixed object rendering when it has color and textures at same time.
+    - Fixed center of gravity computing.
+
+    SDK:
+    - Added ability to fill ModelData_PolyLineSet and ModelData_PolyPointSet in C# and Java.
+    - Introduced PMI public API as a technical preview.
+
+    IFC:
+    - Fixed an issue where the import of file containing IfcBooleanResult would result in a model
+      with invalid shapes and cause CAD Exchanger to freeze or produce an error during export.
+    - Fixed an issue with product structure being imported incorrectly and causing export to fail.
+    - Improved import of colored IfcBooleanResult entities.
+    - Fixed crash in import when IfcRelAggregates entity references the same child multiple times.
+    - Fixed an issue where IfcOpening expressed using MappedRepresentation would be cut out at an
+      incorrect location.
+
+    JT:
+    - Fixed assert that was triggered in debug mode on valid cases of trivial box p-curves in
+      JT B-Rep data segments.
+    - Expanded logging and data retrieval capabilities to facilitate issue triaging.
+    - Significantly improved import of files with external references:
+      - Enabled delayed construction of the resulting product structure which greatly enhances
+        application responsiveness and decreases peak memory footprint.
+      - Reduced number of simultaneously open files. Previously, this could affect OS performance due
+        to locking lots of file handles when importing very large assemblies.
+    - Improved importer robustness and ability to parse and convert JT files not conformant to JT
+      specification (violating the JT file format and JT LSG structure conventions).
+    - Fixed assert that was triggered in debug mode on PMI Design Group entities.
+    - Fixed import of PMI model views when camera eye direction has null values in a file.
+    - Fixed a data race when converting multiple XT B-Rep segments with embedded schemas concurrently.
+
+    Solidworks:
+    - Enabled Solidworks importer to be used in CAD Exchanger SDK from C# and Java.
+
+    STEP:
+    - Fixed an issue where passing a filename prefixed with "./" to WriteFile() would result in
+      no file being created.
+    - Fixed omission of user-defined properties during export.
+    - Fixed parsing file's header which have whitespace at begin of lines.
+    - Fixed export on the Android.
+
+    Mesher:
+    - V3 visualization mesher is now used by default in CAD Exchanger GUI, CLI and SDK.
+    - Improved performance of meshing on multi-core systems by taking advantage of parallelism.
+    - Decreased triangles count and improved mesh quality of complicated geometry.
+    - Added progress status support.
+
+    VRML:
+    - Revamped VRML V2 import to ensure better robustness, performance and standard conformance.
+    - Added import of VRML version 1.
+
+CAD Exchanger 3.5.1, September 2018
+
+    GUI:
+    - Improved GUI performance when working with large assemblies and toggling visibility of their
+      components.
+    - Added a filter in Structure panel allowing to hide bodies or poly vertex sets according to
+      their type.
+    - Added a warning which appears before export if the specified directory is non-writable.
+    - Fixed a problem when a batch selection (with Shift held down) of a large number of elements
+      in tree view doesn't work.
+    - Fixed a crash during displaying of PMI objects.
+    - Fixed export of screenshots to JPEG.
+    - Fixed a problem where some PMI items would be in loading state indefinitely.
+    - Fixed the triangles number in properties panel not being updated after a change of B-Rep
+      display quality.
+    - Improved GUI performance when opening property panel while a large assembly is selected.
+    - Now parts with hidden bodies/poly vertex sets will be fully displayed when adding
+      a new representation to make the new representation more accurate with respect to the original.
+    - Updated the package to contain all the libraries needed to run the application on Windows 7.
+
+    SDK:
+    - Expanded the API of ModelAlgo_BSplineConverterParameters to allow tuning parameters of the
+      resulting B-Spline curves and surfaces.
+    - Added ModelAlgo_ValidationPropertyData allowing combined evaluation of all validation properties
+      (volume, surface area, COG, axes of inertia) for improved performance.
+    - Fixed computation of p-curves on faces having a transformation in multi-threaded environment.
+
+    ACIS:
+    - Added support of ACIS versions up to R28 (aka 2018 1.0.1) in import and export.
+
+    IFC:
+    - Enabled IFC importer to be used in CAD Exchanger SDK.
+    - Fixed a crash that could occur when importing models containing a 2D geometric representation
+      context.
+
+    IGES:
+    - Fixed an issue where some non-manifold solids were imported only partially.
+    - Fixed progress status not being updated during the file reading.
+    - Fixed an issue where the transformation attached to topological entities was discarded
+      during import.
+
+    JT:
+    - Fixed a crash during reading of Wireframe Rep Elements in JT 10 import.
+    - Fixed progress status not being updated during import.
+    - Added an ability to import polygonal shapes representing the primitive bodies (boxes,
+      spheres, etc.) encoded as Primitive Set Shape elements.
+
+    OBJ:
+    - Added a new export parameter (OBJ_ReaderParameters::ReplaceSpacesInNames()) controlling whether
+      to replace space characters in parts' names for better compatibility with receiving systems.
+
+    Rhino:
+    - Improved export of subshape colors.
+
+    STEP:
+    - Reimplemented STEP export to use new custom formatter delivering better performance and standard
+      conformance.
+    - Fixed an issue that caused faces built on toroidal surfaces with negative major radius to fail
+      to be imported.
+    - Fixed import of edges based on hyperbola.
+    - Added support of new combined boundary_curve's type, which contain surface_curve and bounded_curve.
+
+    STL:
+    - Added support of writing parts' names during export and reading them during import.
+
+CAD Exchanger 3.5.0, June 2018
+
+    GUI:
+    - Added support of unit management in export options for IGES, JT, STEP.
+    - Fixed export of subshape colors if parent body was translated using Manipulator.
+    - New UI design. The new Tools panel contains sectioning, B-Rep vs polygonal representations selection
+      (incl. mesh generation), measurements, explode, as well as view mode options (projection, display
+      and selection modes). The Start page now contains news and blog posts headers.
+    - Improved responsiveness of cancelation during import and displaying.
+    - Fixed crash when importing mesh files (such as VRML) that might occur after cancelation.
+    - Now parent part will be selected in the Product Structure panel when selecting its single
+      B-Rep body or vertex set (triangulation, polyline or polypoint) in 3D view.
+    - Fixed crash that might occur when using the explode feature.
+    - Fixed crash that might occur when deleting a part representation.
+    - Fixed Sectioning option and "Focus" from menu when using the explode feature.
+    - Fixed problems with measurements after using the explode feature.
+    - Fixed problem when changing a display mode enforced displaying hidden bodies.
+    - Fixed problem related with failed import when tree items stay in loading state after cancellation.
+    - Fixed "One or more parts could not be imported" warning when changing display mode or
+      creating a new polygonal representation.
+    - Fixed "Some parts failed to import" warning when creating a new polygonal representation.
+    - Fixed sporadic problems with selection in the Product Structure panel.
+    - Fixed sporadic problems when activating/deactivating the ghost hidden mode.
+    - Fixed measurements display after changing a B-Rep display quality.
+    - Fixed erasing of a polygonal representation after changing a B-Rep display quality.
+    - Fixed PMI display after switching to another representation.
+
+    SDK:
+    - Fixed reading and writing models containing orphan sub-shapes attached to B-Rep representations.
+    - Sped up addition of elements to layers.
+    - Fixed import of edges with explicitly specified curve ranges which go slightly beyond natural
+      curve ranges.
+    - Fixed retrieval of UV coordinates from IndexedTriangleSet so there is no out of bounds access
+      in case of distinct number of 3D points and UV points.
+
+    ACIS:
+    - Added support of ACIS versions up to R27 (aka 2017 1.0) by importer and exporter.
+    - Fixed parsing ACIS files created in R25 or higher with specific values in a file header.
+    - Fixed creation of solids from lumps: open shells will now result in shells, closed shells
+      will result in solids (unless a new option ACIS_ReaderParameters::TryCreateSolids() is set to
+      false).
+    - Fixed parsing of .sab files containing blend surfaces using specific subtypes of var_radius
+     (fixed_width and two_ends).
+
+    IGES:
+    - Fixed incorrect import of custom properties.
+    - Fixed crash during export of a model containing parts without representations.
+    - Version V1 support has been discontinued (IGES_ReaderParameters::Version() is kept for binary
+      compatibility but has no effect anymore). The list of redistributable libraries has been
+      significantly reduced.
+
+    IFC:
+    - Added support of IFC format import as a technical preview. Full support will be provided in
+      the future versions. Support is currently available in GUI/CLI only, support in SDK will be
+      enabled later.
+
+    JT format:
+    - Improved import of JT files with LOD element shared between different RangeLOD groups.
+
+    OBJ:
+    - Improved robustness parsing files with mixed data.
+    - Added a new import parameter (OBJ_ReaderParameters::EnforceGrouping()) to control grouping
+      of part's data which may significantly reduce amount of parts in some cases.
+
+    Parasolid format (also affects JT format):
+    - Added support of Parasolid versions 30.1 and 31.
+    - Added support of importing Parasolid files with PART_XMT_BLOCK as root entities.
+
+    STEP:
+    - Fixed an issue where an export and subsequent import of STEP file with colored part with both
+      B-Rep and Poly representations would result in the color being re-assigned to bodies and
+      indexed triangle sets.
+    - Added support of color for empty parts.
+    - Added support of color attached to assemblies in import.
+
+    STL:
+    - Added support of exporting multi-body parts. Each body will result in a self-contained section
+      in an STL file.
+
+CAD Exchanger 3.4.2, March 2018
+
+    GUI:
+    - Upgraded to Qt 5.10.0.
+    - Moved to Microsoft Visual Studio 2017 compiler.
+    - Added STEP importer option to select BRep representation(s).
+    - Added option to manipulate scene graph elements (Manipulator).
+    - Added "Highlight" setting to General settings.
+      It allows the user to enable/disable highlight for the objects under cursor.
+    - Fixed an issue where nested objects weren't separated during explode.
+    - Reduced memory footprint of BRep representations.
+    - Ghost hide mode: improved performance, added support for models with colored vertexes.
+    - Fixed PMI from JT for instances. Improved STEP PMI - camera, text displaying, etc.
+
+    Meshers:
+    - Added API for the refinement of the Netgen meshes (Mesh_NetgenMeshDS::RefineUniform,
+      Mesh_NetgenMeshDS::MakeSecondOrder).
+
+    SDK:
+    - Intel TBB version has been upgraded to 2017.5. Customer applications using both
+      CAD Exchanger SDK and TBB are recommended to use this version or newer.
+    - Added support of Microsoft Visual Studio 2017 (vc14.1).
+    - Added new cadexviewer example demonstrating creation of OpenGL-based 3D viewer using C# and WPF.
+    - Added cmake module which help include CAD Exchanger SDK to cmake-based projects.
+    - Fixed import of edges with vertices lying slightly apart from curve.
+
+    SolidWorks:
+    - Introduced first version of SolidWorks importer in GUI and SDK.
+    - Support for B-Rep representations.
+    - Support for multibody parts.
+    - Support for product structure.
+    - Support for external files.
+    - Support for colors and names.
+
+    STEP format:
+    - Fixed crash when polyline is used as edge geometry.
+    - Fixed import of faces based on toroidal surfaces and bounded with vertex loops.
+    - Parts with multiple BRep representations of same type are now imported as multibody parts.
+    - Support for reading parts names from 'Id' field when 'Name' field is empty.
+    - Support for new entity, BOUNDED_SURFACE_CURVE.
+    - Drastically reduced time to convert subshape colors.
+
+    IGES format:
+    - Fixed an issue where reading Group Associativity Instance entities as parts and assemblies
+      led to creation of extra product structure elements during import.
+    - Fixed an issue where having string properties with lots of whitespace would cause import
+      to continue indefinitely.
+    - Added multibody parts support in export.
+    - Fixed an issue with extra assemblies created during import.
+
+    OBJ format:
+    - Improved import of files where number of vertices is not aligned with number of normals and
+      texture coordinates.
+    - Reduced memory footprint of models with textures.
+    - Improved search of mtllib files.
+
+    JT format:
+    - Added support of files written in big-endian format.
+    - Improved export of files where mesh colors stored per-vertex.
+    - Improved support of JT10.x files written with the most recent JT toolkit, including latest
+      version of the PMI data elements.
+    - Improved forward-compatibility with future versions of the JT format.
+    - Improved graceful import of undocumented data segments (e.g. encountered in JT10.2 files created
+      with Siemens NX11).
+    - Fixed import of JT files with transformation matrices attached to meta-data, part or partition
+      nodes.
+    - Fixed import of JT files containing rotation matrices with a scale factor
+      (i.e. determinant different from one) when such matrices are attached to interim assemblies.
+    - Fixed import of JT files containing JTE_PolylineSetShapeNodeElement where
+      "Number of Vertex List Indices" is not equal to "Number of Unique Vertex Coordinates".
+    - Improved export of files where mesh colors are stored per vertex.
+
+CAD Exchanger 3.4.1, December 2017
+
+    GUI:
+    - Added new display mode for polygonal representations - displaying sharp edges.
+    - Added selection of length and angle units when displaying measurements and properties.
+    - Added hiding objects from the scene using the 'ghost' mode on Android.
+    - Added PMI visualization for STEP AP203e2, AP214e3 and AP242 as technical preview.
+    - Added 'Explode' feature, which allows gradually move instances in assembly or bodies in
+      part from each other to inspect model contents.
+    - Added support of unit management for OBJ, STL and X3D.
+    - Fixed issue of lost colors attached to wireframe bodies.
+    - Fixed issue with activating serial numbers on Linux.
+    - Fixed crash that could happen during selection of the file item in the tree during
+      the display operation.
+    - Fixed saving the settings of Android application after it is closed.
+    - Fixed not working selection of view modes when part is checked.
+    - Fixed issue where model was not displayed when display quality has been changed.
+
+    CLI:
+    - Added support of screenshot generation.
+
+    SDK:
+    - Body created from a single shape (e.g. solid body) now always IsEqual() with this shape.
+      Any attributes, assigned to such body, will also be assigned to underlying shape and
+      vice versa.
+
+    ACIS format:
+    - Fixed an issue with import where the geometry sharing within a single body was not eliminated.
+
+    IGES:
+    - Fixed reading user-defined properties containing non-Ascii characters.
+    - Significantly improved performance of formatting IGES files. Enabled with version 2 selected
+      in IGES exporter parameters (default).
+    - MSBO write mode now is only applied during export of solid bodies. For other body types
+      Bounded Surfaces is enforced to ensure better compatibility with receiving CAD systems.
+    - Added support of exporting colors attached to topological entities when writing in MSBO mode.
+
+    JT format:
+    - Enabled import of JT 10.x files with multiple XT B-Rep segments (using JT_LLPROP_MULTIXTBREP
+      property).
+
+    Parasolid format (also affects JT format):
+    - Added support of Parasolid version 30.
+    - Enabled forward-compatibility for Parasolid versions, i.e. reading files generated by
+      future versions of Parasolid.
+
+    STEP:
+    - Added support of AP242 files.
+    - Enabled reading PMI for AP203e2, AP214e3 and AP242.
+    - Improved determinism for multibody parts export in parallel mode.
+    - Fixed parsing entities containing empty collections.
+
+CAD Exchanger 3.4.0, September 2017
+
+    GUI:
+    - Added radius/diameter measurements for analytical surfaces (cylindrical, conical,
+      spherical, toroidal).
+    - Added use of context pop-up menus with key operations (show, hide, etc).
+    - Added hiding objects from the screne using the 'ghost' mode when the hidden
+      objects are displayed with semi-transparancy for more efficient visual
+      navigation through the model.
+    - Added a switch to select either body or faces when displaying B-Rep representations.
+      B-Rep bodies are no longer explored deeper (into faces) to not undermine performance.
+    - Added exploration of parts into triangle / polyline / polypoint sets when polygonal
+      representation mode has been activated.
+    - Enabled possibility to change appearance settings (colors) for polygonal
+      representations.
+    - Enhanced support of keyboard when traversing through the Product Structure panel.
+    - Fixed inconsistent measured angles between planar faces in 3D view and measurement panel.
+    - Fixed particular cases of radius/diameter measurements.
+    - Sectioning mode is now reset when importing a new file.
+    - Fixed issue with permanent license after upgrade period expiration.
+    - Measurements now remain visible after closing the Measurements panel.
+    - Fixed Android-specific issue which previously provoked a crash when importing STEP
+      files.
+
+    SDK:
+    - Extended API to support deeper geometry analysis (curve and surface derivatives,
+      curvature, continuity, etc) in ModelData_Curve, ModelData_Curve2d and ModelData_Surface
+      subclasses.
+    - Extended API for B-Rep bottom-up creation (from vertex to solid) in ModelData_Shape
+      subclasses.
+    - Added Base_WriterParameters::OriginatingSystem() to specify user's application name
+      which can be used whenever a target format supports that (e.g. IGES, STEP,
+      Parasolid, etc).
+    - Added new brepmodeling example to demonstrate bottom-up creation of B-Reps.
+    - Added API (ModelAlgo_BSplineConverter) to convert geometrical representations to
+      NURBS (Non-Uniform Rational BSplines).
+    - Extended API to support transformation-related operations (rotation, translation,
+      mirroring), arithmetic operations (add, subtract, multiply, divide) to ease usage in
+      C# and Java-based applications.
+    - C# libraries are now built with .NET Framework 3.5 to maximize interoperability on
+      all supported Windows versions.
+    - Simplified packaging of C# and Java libraries by providing minimum amount of files in
+      language-specific subfolders.
+    - Simplified packaging of examples: C++, C# and Java examples are now located in
+      language-specific subfolders.
+    - Adopted cmake-based build process for SDK examples.
+    - Added support for gcc compiler version 5 and 6 on Linux.
+    - When generating meshes for sheet bodies with parameter
+      ModelAlgo_BRepMesherParameters::MergeFaceSets() set to true (which is default)
+      resulting triangulations are now concatenated into single ModelData_IndexedTriangleSet.
+      This improves performance in downstream usages (e.g. in visualization).
+
+    Multiple formats:
+    - Fixed import of edges lying on periodic curves, when one vertex coincides with the
+      curve's end.
+
+    STEP format:
+    - Fixed import of faces lying on conical surfaces and bounded by vertex_loop.
+    - Fixed import of faces and edges colors in certain cases.
+    - Added support of properties with ratio units (like kg/mm^3). They are imported as-is,
+      without conversion.
+    - Fixed import of conical surfaces with zero radius.
+    - Improved determinism for parallel import.
+    - Improved parsing of multiline strings.
+    - Improved parsing of some AP203 entities.
+    - Fixed import of oriented_face.
+    - Improved recognition of product structure elements.
+    - Added body colors support for polygonal representations (FACETED_BREPs).
+    - Exporter now skips instances without reference so resulting file is valid.
+    - Parts without representations now correctly exported. This allows exporting
+      models containing product structure only with properties attached.
+    - Improved robustness parsing files with invalid data.
+    - Improved reading of parts with several BRep representations.
+
+    IGES format:
+    - Revamped the file parser to significantly increase performance and improve
+      compliance to the IGES specification.
+    - Added support of layers (IGES levels) for subshapes in B-Rep representations.
+
+    OBJ format:
+    - Revisited general export logic: map every body of part to separate OBJ-group (surrounded
+      with "g" tag) instead mapping of whole part to OBJ-group. The target OBJ-group(s) will bear
+      the part's name.
+    - Added a new export parameter to influence behavior of saving multiple occurrence of part
+      (via instance) with distinct names by supplementing of suffix(es) (to avoid merging of
+      geometries with same name during import by CAD Applications).
+    - Fixed exporting of materials with same name to material lib.
+
+    Rhino format:
+    - Fixed import of edges having a null-length parametric range.
+    - Fixed import of materials with alpha channel.
+    - Improved export of analytical surfaces by saving them as surface of revolution instead
+      of B-Splines.
+    - Improved robustness of the nurbs driver.
+    - Added a new import parameter to control reading of pcurves from the file.
+
+CAD Exchanger 3.3.1, June 2017
+
+    GUI:
+    - Added support for PMI model views when importing JT files. Model views are used to group
+      relevant PMI entities (notes, dimensions, etc) and to set a specific view camera position
+      to faciliate reading PMI data.
+    - Added new types of measurements: radii and diameters(supported for circles and circular
+      arcs) and angles (between planar faces and using three points).
+    - Added search in product structure view using element names.
+    - Added user-defined adjustment of font size used for displaying dimensions, radii and
+      other measurements, to better fit to model sizes.
+    - Improved user experience for purchase and license activation process. Introduced use
+      of serial numbers.
+    - Improved user experience in environment with OpenGL drivers with versions lower than
+      supported (2.1). Now an explicit message is displayed explaining root-cause and providing
+      recommendations instead of crash in the past.
+    - Improved user experience when exporting polygonal representations to files requiring
+      B-Rep format by providing more explicit warning message and requesting user's confirmation
+      to proceed.
+    - Improved user experience of importing assemblies with part(s) which may fail to import.
+      Instead of cancellation the import process will now continue and all successful parts
+      will be imported.
+    - Added support of isometric/perspective view on Android.
+    - Improved display of product structure view on Android phones, especially with lower
+      resolutions.
+    - Fixed issue that previously caused bluetooth malfunction on Samsung devices.
+    - Fixed issue with permissions granted to Android app.
+
+    CLI:
+    - Enabled functioning on Linux servers that do not have pre-installed OpenGL packages.
+    - Enabled custom triangulation settings via a settings file.
+
+    SDK:
+    - Added support of Java by providing complete API aligned with public C++ and C# API.
+      Ported selected C++ examples to Java.
+    - Added API to create 3D models using extrusion and rotation (in ModelAlgo_TopoPrimitives).
+    - Added new example demonstrating creation of OpenGL-based 3D viewer (using Qt library and
+      QML, Qt Meta Language).
+    - Reduced file sizes when storing model in native CAD Exchanger format (XML and binary).
+    - Aligned behavior of SetName() and SetAppearance() methods. The former will now remove
+      internal attributes thereby reducing memory footprint.
+    - Improved portability by ensuring compilation on gcc5 and gcc6. However these compilers
+      are not officially supported yet.
+
+    IGES format:
+    - Improved import of product structure by creating individual parts for root MSBO (Manifold
+      Solid B-Rep Objects, type 186) instead of bodies inside a single part.
+    - Fixed import of colors attached to faces (type 510) inside MSBO (type 186) or
+      shells (type 514).
+    - Improved robustness of the IGES reader to read incompliant files containing Copious Data
+      (type 106) entities.
+    - Improved recognition of transformation matrices close to identity (e.g. due to round-off
+      errors) and correct applying to geometries during import.
+
+    OBJ format:
+    - Improved recognition of objects during import. On specific files previous implementation
+      could create excessive number of parts (up to 450K on a sample file) resulting in huge
+      display time and memory footprint.
+    - Simplified model created during import by re-assigning appearance appearances (materials,
+      colors, textures, etc) to parts from triangle sets inside polygonal representations in
+      the case of equal settings.
+
+    Parasolid format (also affects JT format):
+    - Extended support to Parasolid version 29.1.
+
+    Rhino format:
+    - Fixed trimming of face surfaces which previously could become untrimmed in resulting
+      .3dm files during export.
+
+    STEP format:
+    - Added user-defined option to select B-Rep representation type, which should be imported
+      (Auto, All or specific: Advanced B-Rep, Manifold- and Non-Manifold-Surface, Edge-Based
+      Wireframe).
+    - Significantly improved performance of parsing STEP files (up to 3x on selected
+      medium-to-large test files).
+    - Improved handling of specific edge curves which previously could be sampled with too
+      small steps leading to effectively infinite loops and potential memory leaks which
+      could result in huge memory footprint.
+    - Added support of CATIA-specific geometric validation properties in import.
+
+    VRML format:
+    - Added import of names of the product structure entities.
+    - Improved robustness of the VRML reader when reading incompliant VRML files with
+      Transform entities.
+
+
+CAD Exchanger 3.3.0, March 2017
+
+    GUI:
+    - Added preview of PMI (Product and Manufacturing Information) support. Supported scope
+      includes graphical PMI elements (notes, dimensions, reference geometries, coordinate
+      systems and others) when importing JT files.
+    - Added preview of measurement support. Supported scope includes coordinates, lengths
+      and distances between B-Rep entities (vertices, edges, faces, etc).
+    - Added support of textures display for formats that support textures (currently OBJ,
+      Rhino, VRML).
+    - Redesigned placement and display of properties by more efficient use of screen estate,
+      especially when working with large models.
+    - Adjusted GUI elements and layout to better comply with updated 'Universal' style
+      guidelines.
+    - Further improved font display, icons scaling and other visual appearances when
+      working with monitors of different resolutions, up to 4K.
+    - Fixed various issues with graphical elements (the news channel widget on the start
+      page, scrollbars, etc).
+    - Fixed navigation over subshapes in parts with B-Rep representations in the Product
+      Structure panel, what previously might lead to modifying an underlying model and
+      incorrect data when exporting to native format.
+    - Fixed issue with the Windows installation package that could previously prevent
+      upgrading installed older version.
+
+    SDK:
+    - Added full-fledged support of C# by providing complete C# API aligned with public
+      C++ API. C# examples have been rewritten to use streamlined C# API instead of (now
+      dropped) C++/CLI bridge.
+    - Extended public API for more flexible and effective layer support. Layers can now be
+      attached to scene graph elements and sub-shapes of B-Rep representations. Association
+      between elements and layers can be traversed using any of them.
+    - Extended low-level geometric primitive API (point, boxes, vector) for more convenient
+      use.
+    - Added support of parsing files located at custom file storages (e.g. cloud)
+      by introducing an additional overload of Base_Reader::ReadFile() that accepts
+      custom stream provider factory.
+    - Added computation of minimum bounding boxes, not necessarily axis aligned.
+    - Intel TBB version has been upgraded to version 2017. Customer applications using both
+      CAD Exchanger and TBB should use either TBB version 2017 or any newer one.
+    - Base_ReaderParameters::DelayedConversion() has been exposed into public API to
+      enable user control over delayed conversion for importers which support it.
+    - Enhanced logging mechanism to root-cause license activation errors.
+
+    Multiple formats:
+    - Added support of textures when importing OBJ, Rhino and VRML files.
+    - Fixed export of revolution surfaces for several formats. In certain cases it could
+      produce self-overlapping surfaces (e.g. when surface of revolution was defined on
+      a full circle).
+
+    IGES format:
+    - Introduced major revamp of IGES importer and exporter. New converters are based on
+      core CAD Exchanger architecture leveraging scalable parallelism. Other advantages
+      include significantly improved work with assemblies by preserving their structures
+      both for import and export.
+    - IGES exporter now uses IGES B-Rep entites (Manifold Solid BRep, Type 186) to preserve
+      topological connectivity information.
+
+    OBJ format:
+    - Added progress status support in OBJ exporter.
+    - Added cancellation support in OBJ importer.
+    - Improved import of files containing objects from multiple groups scattered throughout
+      the file. Previously this could result in excessive number of root parts.
+
+    Parasolid format (also affects JT format):
+    - Fixed import of attributes (colors, names, user-defined properties, etc) when a file
+      has inconsistent linking between attribute definition entities.
+    - Fixed import of user-defined properties when respective attribute's content is
+      defined not in a first attribute field.
+
+    Rhino format:
+    - Improved export by storing more accurate surface parametric domains (this in particular
+      impacted surfaces of revolution and extrusion).
+
+    STEP format:
+    - Added user-defined option to select target B-Rep representation type (Advanced
+      B-Rep, Manifold- and Non-Manifold-Surface, Edge-Based Wireframe shape representations).
+    - Fixed import of periodic B-Splines for some cases.
+    - Improved determinism (i.e. getting exact same result for the same input data) when
+      importing and exporting files working in parallel multi-threaded mode.
+    - Fixed export of open shells with attached colors.
+
+    VRML format:
+    - Added import of VRML files written in VRML v2/1997 format.
+    - Added user-defined option to save a view point with the help of ViewPoint node.
+
+    Meshers:
+    - Fixed issue in computational meshers which affected sheet bodies containing
+      individual faces or shells of single faces. The issue was in returning entire
+      body mesh (instead of per face) for such individual faces or shells.
+
+    Parasolid format (also affects JT format):
+    - Improved import of TRIMMED_CURVES on INTERSECTION curves and SP_CURVE's on periodic
+      surfaces leading to better accuracy and quality of the resulting geometry.
+
+CAD Exchanger 3.2.3, November 2016
+
+    GUI:
+    - Added functionality to set/modify names, colors and opacity to parts, assemblies
+      and B-Rep subshapes.
+    - Added display of user-defined properties attached to parts, assemblies and
+      B-Rep subshapes.
+    - Added a switch between perspective and isometric views.
+    - Added a news channel to the Start page.
+    - Restored bounding box display on Android.
+    - Fixed sporadic crash when selecting element in product structure view with expanded
+      bounding box.
+    - Fixed message 'Your license has expired' remained after successful commercial license
+      activation.
+    - Fixed sporadic issue with non-working 'fit all' button on Android.
+    - Adjusted various display element sizes depending on monitor resolution.
+
+    SDK:
+    - Added common functionality to select which representations (B-Rep and/or polygonal)
+      and which LOD's (levels of details) to export into the base class Base_WriterParameters.
+      This applies to formats supporting respective elements (e.g. JT, STEP, Rhino).
+
+    ACIS format:
+    - Added import of user-defined properties.
+
+    JT format:
+    - Fixed import of rational p-curves in JT B-Rep data segments.
+    - Fixed import of regions referring to empty shells in JT B-Rep data segments.
+    - Fixed import of JT B-Rep or Wireframe representations attached to root parts with
+      units different from millimeters or belonging to assembly with different units.
+    - Fixed import of rational B-Spline surfaces in JT B-Rep data segment in JT10 files.
+    - Improved decoding data encoded with Move-to-Front codec.
+
+    Parasolid format (also affects JT format):
+    - Added import of user-defined properties.
+    - Improved determinism (reproducibility of the resulting B-Rep) when importing Parasolid files.
+
+    Rhino format:
+    - Enabled support of Unicode filenames in export.
+    - Fixed potential memory leak in export.
+    - Improved export of B-spline surfaces.
+
+    STEP format:
+    - STEP importer V2 will now assign colors to parts instead of B-Rep bodies.
+
+    X3D and VRML formats:
+    - In exporter, restored addition of appearance with default materials to the polygonal
+      representations which did not have own appearances.
+    - Added a user-defined parameter to enable saving a viewpoint in a file.
+
+CAD Exchanger 3.2.2, October 2016
+
+    General:
+    - Added support of binary format when saving polygonal representations in native
+      CAD Exchanger XML format. This significantly reduces resulting file size and reduces
+      read/write times.
+    - Improved persistence of B-Rep representations in native CAD Exchanger formats (both
+      XML and binary). This significantly reduces resulting file size and read/write times.
+    - Optimized import of colors and materials by maximing reuse of unique attributes instead
+      of creating copies, what allows to reduce memory footprint especially when reading
+      larger ACIS, Parasolid, IGES, JT and other files with numerous equal attributes.
+    - Reduced memory footprint and prevented potential crash when export of large meshes might
+      cause memory reallocations.
+
+    GUI:
+    - Improved handling of empty (sub-)assemblies which previously show an infinite loading
+      icon and sometimes prevented successful export.
+    - Improved performance when displaying large B-Rep files with multiple faces, in particular
+      when switching between polygonal and B-Rep representations.
+    - Fixed display of start page on 4K and Retina monitors.
+    - Fixed issue with access permissions which must be explicitly requested on Android 6.
+      Previously this prevented user access to SD card and prevented export or import from
+      user-defined locations.
+    - Fixed infinite loop that might potentially occur when displaying models with part(s)
+      instanced multiple times with enabled parallelism.
+
+    SDK:
+    - Extended API to apply transformations to curves and surfaces.
+    - Extended API to compute U parameters from point on elementary curves and UV points
+      from point on elementary surfaces.
+    - Extended API to add subshapes to parent shapes (edges to wires, wires to faces,
+      faces to shells and shells to solids).
+
+    ACIS format:
+    - Enabled recognition of file units during import. This resolves previous limitation of
+      ignoring file units and conversion all coordinates as if they were in millimeters.
+
+    JT format:
+    - Fixed recognition of units when importing assemblies with heterogeneous units assigned to
+      sub-assemblies and/or parts.
+    - Reduced memory footprint growth during import what allows to read larger JT files more
+      efficiently.
+    - Enabled parsing of user-defined property elements.
+    - Fixed parsing of point and polyline set elements in JT10 files.
+    - Enabled parsing of not recognized element types in order to be able to parse the rest of
+      the file contents.
+    - Improved parsing of data encoded with arithmetic codec in JT10 files.
+    - Improved support of data segments late loading by reducing memory footprint while
+      retaining references to data segments which have not been loaded yet.
+    - Fixed import of JT files with LSG (logical scene graph) containing transformations attached
+      to nested partition nodes (i.e. corresponding to external references).
+
+    OBJ format:
+    - Improved exporter to take into account appearance settings (colors or materials) attached
+      to B-Rep subshapes or polygonal representations.
+
+    Parasolid format (also affects JT format):
+    - Added support of Parasolid versions up to v28.1 by importer and exporter.
+    - Improved robustness of Parasolid importer to invalid edge p-curves by trying harder to
+      fit p-curves to edge vertices.
+    - Improved import of edges on periodic intersection curves using blend_bound surfaces,
+      with edge vertices not aligned with curve ends.
+
+    STEP format:
+    - Improved recognition of assemblies components names.
+    - Set version 2 as default version of the STEP importer.
+
+    STL format:
+    - Enabled support of files containing multiple parts.
+    - Improved performance of parsing text and binary files.
+
+CAD Exchanger 3.2.1, July 2016
+
+    General:
+    - Added support of export of models containing only polygonal representations to formats
+      requiring B-Rep representations (e.g. STL, or JT or Rhino only with polygonal
+      representations to IGES, STEP, ACIS or Parasolid). In this case, B-Rep representations
+      are auto-generated using planar triangular faces.
+    - Support of Linux 32 bit configuration has been discontinued.
+
+    GUI
+    - Improved performance of import and display of larger assemblies due to more efficient use
+      of parallelism.
+    - Fixed support of Retina display on MacOS.
+    - Fixed display of B-Rep representations when colors are attached to bodies.
+
+    SDK:
+    - Added API to work more efficiently with shape orientation (ModelData_Shape::Oriented(),
+      ::Reversed(), ::IsSame(), ::IsEqual()) and curve orientation (ModelData_Curve::Reversed(),
+      ModelData_Curve2d::Reversed()).
+    - Added API to distinguish outer and inner face wires (ModelData_Face::OuterWire()).
+    - When converting XDE documents to CAD Exchanger model, auto-generated instance names that
+      existed in the original document (in the form "=>[0:1:1:...]") are now ignored to avoid
+      possible user confusion.
+    - Fixed converting XDE documents containing nested compounds as parts with attributes
+      attached to subcompounds.
+    - Fixed converting XDE documents containing instances (as assembly children) referring
+      to other instances (as top-level shapes).
+    - Fixed data race on Linux (in gcc C++ run-time library) when reading native CAD Exchanger
+      files containing multiple parts.
+
+    ACIS format:
+    - Fixed parsing of netsur (net_spl_sur) subtype written in format version 26.
+    - Added support of progress status in parsing and formatting phases to report progress and
+      support cancellation when working with larger files.
+    - Fixed export of colors attached to subshapes inside B-Rep representation.
+
+    JT format:
+    - Significantly improved performance of import of JT 10 files containing data encoded with
+      Move-To-Front codec.
+    - Fixed parsing of various specific configurations in PMI, JT B-Rep and Shape LOD data
+      segments.
+    - Added support of parsing lights.
+    - Added support of specifying units of ShapeLOD data segments when exporting.
+
+    OBJ format:
+    - Improved robustness when reading files that may contain missing names of groups and objects.
+
+    Parasolid format (also affects JT format):
+    - Added support of progress status in parsing phase to report progress and support
+      cancellation when working with larger files.
+    - Added export of instance names.
+    - Fixed export of models containing empty instances (which do not refer to part or assembly).
+    - Fixed export of models containing parts with existing empty B-Rep representations.
+    - Fixed export of colors assigned to bodies (not their subshapes) which previously were lost.
+
+    STEP format:
+    - Fixed import of assemblies with bodies attached directly to them.
+
+    STL format:
+    - Significantly improved performance of reading text STL files on Windows.
+
+CAD Exchanger 3.2, May 2016
+
+    General:
+    - Added import and export of a new format - Rhino/OpenNURBS version 1 to 5.
+
+    GUI:
+    - Revamped UI, including new layout, enhanced visualization settings and user experience.
+    - Improved visual representation when sectioning solid bodies in B-Rep models by
+      providing solid filling at the section plane.
+    - Restored exploration of B-Rep representations in the product structure view. Solid and
+      sheet bodies are explored down to the faces, wireframe and acorn bodies - to the first
+      level children.
+    - Added support of importing files by drag-n-drop to the 3D view.
+    - Added support of multiple section planes (up to three).
+    - Added support of multiple selection of elements in the product structure view.
+    - Added support of multiple polygonal representations, retrieved from the file (for
+      instance, JT) or creating new ones with the help of meshers.
+    - Added direct manipulation of part representations - creation of polygonal and removal.
+    - Added support of network license management on Mac OS X.
+
+    CLI:
+    - Added support of settings specified in the command line.
+
+    SDK:
+    - Updated documentation with details on entity mapping supported by each converter.
+    - Added support of Visual Studio 2015.
+    - Added C# examples.
+
+    Multiple formats (ACIS, Parasolid, JT, etc):
+    - Fixed import of edges lying on closed but not periodic curves when an edge takes a portion
+      of a curve and has end vertex exactly matching the curve boundary.
+
+    ACIS format:
+    - Added support of ACIS versions up to R26 by importer and exporter.
+    - Enhanced import of attributes by favoring color to materials when both attributes are
+      attached to entities.
+    - Fixed writing range of offset surfaces lying on B-Spline surfaces. Fixed import of offset
+      surfaces with incorrect range written by earlier versions of CAD Exchanger.
+    - Fixed export of faces lying on elementary surfaces with left-handed axis.
+
+    BRep format:
+    - Added support of breaking topology sharing between bodies during import to
+      ensure correctness of the model.
+
+    JT format:
+    - Added initial support for reading JT10 files.
+
+    Parasolid format (also affects JT format):
+    - Improved import of intersection curves with very uneven chart points distribution.
+    - Fixed parsing of binary-encoded files with strings containing escape characters.
+    - Added support of writing strings containing escape characters into text-encoded files.
+
+    VRML format:
+    - Fixed export of wireframe bodies by using the IndexedLineSet type instead of former
+      LineSet to ensure better compliance with the VRML format specification.
+
+    STEP format:
+    - Introduced new version of the STEP importer (requires explicit activation in GUI and SDK,
+      i.e. an old version is used by default). Major improvements introduced by the new STEP importer:
+       - significantly improved performance (especially on multi-core systems due to parallelism);
+       - introduced support of tessellated (polygonal) representations;
+       - improved handling of parts with multiple bodies;
+       - enabled deferred conversion to support gradual loading and displaying thereby improving
+         user experience.
+    - Added support of Unicode file names in importer and exporter.
+
+    IGES format:
+    - Added support of Unicode file names in importer and exporter.
+
+    Visualization meshers:
+    - When invoking the visualization mesher with MergeFaceSets option set to false the algorithm will
+      no longer attempt to merge nodes of each individual triangle set generated for each B-Rep. This
+      results in improved performance and better compliance with the option intent.
+    - Added support of retrieving UV-coordinates of mesh nodes. Refer to User's Guide on
+      ModelAlgo_BRepMesherParameters::GetUVCoordinates() and the modelexplorer example for details.
+
+CAD Exchanger 3.1.2, Feb 2016
+
+    GUI:
+    - Added support of displaying centroid information in validation property panel for B-Rep
+      models.
+    - Added protection for situations of running out-of-memory when working with large models on
+      32 bit platforms.
+    - Fixed applying of visualization mesher settings (chordal and angular deviations) to
+      B-Rep models.
+
+    Multiple formats (ACIS, Parasolid, JT, etc):
+    - Fixed import of seam-edges with pcurves having different ranges.
+    - Fixed import of edges lying on iso-curves on periodic elementary surfaces (toroidal,
+      cylindrical, etc).
+    - Fixed creation of polygonal representation when any B-Rep face could not be triangulated,
+      when merge of individual triangle sets was activated (in GUI with "Merge triangle sets in
+      sheet or solid bodies" option, in SDK using ModelAlgo_BRepMesherParameters::MergeFaceSets()).
+
+    IGES format:
+    - Fixed issues that sporadically showed up when exporting faces lying on periodic surfaces and
+      taking full surface domain by the parameter the surface is periodic in.
+
+    JT format:
+    - Improved export of non-manifold meshes (with edges shared by more than two triangles).
+
+    ACIS format:
+    - Fixed parsing of blendsupsur subtypes written in SAB files of format version 12 or older.
+
+    Parasolid format (also affects JT format):
+    - Added support of Parasolid versions up to v28 by importer and exporter.
+    - Fixed import of transformation matrices containing scale factor.
+
+CAD Exchanger 3.1.1, Dec 2015
+
+    GUI
+    - Added fit-to-area operation.
+    - Added support of displaying validation properties (volume and surface area), and
+      triangles count.
+    - Restored support of screenshot saving.
+    - Enabled smooth 3D view fit in various operations: fit all, fit-to-area, standard views
+      selection.
+    - Fixed bounding box computations for assemblies when showing/hiding children.
+    - Fixed recognition of the Pro version on Android.
+    - Fixed behavior of X/Y/Z buttons defining position of a sectioning plane.
+    - Fixed zooming behavior when using multi-touch pad on laptop.
+    - Fixed lines display in 3D view in various scenarios (bounding box, selection, etc). Previously
+      the lines previously could be sporadically drawn as dotted instead of solid.
+    - Reduced minimum width of the product structure widget enabling more efficient use of a 3D
+      view area.
+    - Removed background flickering during application start up.
+
+    SDK:
+    - Added computation of surface area for polygonal representation.
+    - Fixed generation of polygonal representation from B-Rep one which has appearances attached
+      to solid in a solid body or to shells in a multi-shell sheet body.
+
+    ACIS format:
+    - Enhanced import of ralling ball surfaces when a surface has a V-range slightly misaligned
+      with B-Spline path's knots. The same improvement also applies to Parasolid BLENDED_EDGE
+      surfaces.
+    - Improved import of closed edges on closed p-curves but not marked as periodic.
+    - Improved import of edge on p-curves when edge vertices are close to (but not exactly match)
+      p-curve ends.
+
+    OBJ format:
+    - Added protection against a case of exporting a part without provided representations.
+
+    Parasolid format (also affects JT format):
+    - Added protection for a case when children in complex entities (e.g. ATTRIBUTE's fields) refer
+      to entities not existing in the file.
+    - Improved computing pcurve ranges during import, e.g. when handling closed trimmed pcurves
+      on periodic basis curves.
+    - Improved import of intersection curves defined via intersection of elementary surfaces.
+    - Improved import of closed intersection curves lying on blend_bound surfaces.
+    - Improved import of closed edges on closed p-curves but not marked as periodic.
+    - Improved import of edge on p-curves when edge vertices are close to (but not exactly match)
+      p-curve ends.
+
+CAD Exchanger 3.1.0, Nov 2015
+
+    General:
+    - Added import and export of a new format - Wavefront OBJ.
+    - Fixed import of ACIS, Parasolid, JT and other formats containing B-Rep representations
+      when an attribute (e.g. name or color) is associated to an edge or a face which is
+      split into multiple entities.
+
+    SDK:
+    - Deprecated IGESXDE_* and STEPXDE_* classes and CadExIGESXDE and CadExSTEPXDE libraries.
+      API and libraries have been kept to preserve source and binary compatibility. However users'
+      applications should be updated to use IGES_* and STEP_* counterparts and CadExIGES and
+      CadExSTEP libraries. Respectively, the dependency chain of the libraries have been updated.
+      Users' applications distribution should now include wider lists of libraries - refer to
+      CAD Exchanger SDK User's Guide Appendix.
+    - Fixed a bug preventing correct setting of absolute chordal deviation value in
+      ModelAlgo_BRepMesher.
+
+    GUI:
+    - Restored support of computational meshers in GUI.
+    - Significantly improved performance of first display of polygonal mesh representations of 3D
+      models with B-Rep representation (i.e. imported from IGES, STEP, ACIS, Parasolid, JT with
+      B-Rep).
+    - Fixed highlighting of the selected part or assembly which has been shown again after
+      being hidden.
+    - Fixed support of UNC network file names in file import dialog box.
+    - Fixed wireframe mode display of colored polygonal meshes which sometimes could be shown
+      without a color.
+
+    ACIS format:
+    - Added support of .sab (Save As Binary) files generated by Autodesk Shape Manager (ASM)
+      and Open Design Alliance ACIS Builder.
+    - Significantly improved performance and reduced memory footprint of the parser and
+      formatter.
+    - Added support of parsing memory buffers containing SAT or SAB file contents what enables
+      support of 3D body sections by external DXF and DWG parsers.
+    - Made more strict parsing of entity type and subtypes what ensures stronger compliance
+      with the ACIS file format specification.
+    - Added recognition of curve and surface sub-types used by ASM:
+      proj_int_cur, spring_int_cur, surf_int_cur,
+      loft_spl_sur, off_spl_sur, pipe_spl_sur, srf_srf_v_bl_spl_sur, sum_spl_sur, VBL_SURF.
+    - Added recognition of surface sub-type crvcrvblndsur (crv_crv_v_bl_spl_sur).
+    - Fixed parsing curve and surface sub-type sweepsur (sweep_spl_sur),
+      offsetintcur (offset_int_cur).
+    - Fixed import of closed co-edges with p-curves on periodic surfaces and vertices not
+      aligned with p-curve boundaries, when p-curve forms a closed but not periodic 3D curve
+      (i.e. tangents at first and last points are different).
+
+CAD Exchanger 3.0.1, Aug 2015
+
+    GUI:
+    - Added splash screen during start up time.
+
+    ACIS format:
+    - Fixed import of parcur curves lying on surfaces of revolution (cones, spheres, etc).
+    - Added import of circles using colinear normal and major_radius axes (support is limited
+      to cases when curve parametrization is not required).
+    - Added support for helix curve.
+    - Added recognition of curve and surface sub-types used by ASM (Autodesk Shape Manager):
+      exact_int_cur, int_int_cur, helix_int_cur, exp_par_cur, offset_int_cur, par_int_cur,
+      exact_spl_sur, cyl_spl_sur, helix_spl_line, rb_blend_spl_sur, rot_spl_sur,
+      sweep_spl_sur, sweep_sur. However helix_spl_line surface will not be converted to
+      resulting B-Spline surface.
+    - Improved import of closed (periodic) B-Spline curves with periodicity flag incorrectly
+      set to open.
+    - Fixed import of closed co-edges with p-curves on periodic surfaces and vertices not
+      aligned with p-curve boundaries.
+    - Removed redundant warning on periodic flag set on p-curves on periodic surfaces (which
+      is valid for ACIS, even if not for other modeling kernels).
+
+    JT format:
+    - Fixed import of entities with transformation matrices with determinant not equal to one.
+    - Added layers support in import and export using LAYERFILTER and REFSET properties (see
+      JT_ReaderParameters::LayerConversionType and JT_WriterParameters::LayerConversionType).
+
+    Parasolid format (also affects JT format):
+    - Fixed resetting the SameRange edge flag when importing tolerant edges with different
+      p-curve ranges.
+    - Fixed import of edges on periodic intersection curves using blend_bound surfaces, with
+      vertices not aligned with surface period.
+    - Improved import of edges on intersection curves using blend_bound surfaces when intersection
+      curve goes beyond the domain of blend (such cases occur in real-world files even if they
+      should not be allowed per Parasolid requirements).
+    - Fixed import of large files with multiple surfaces and/or curves shared by faces and/or
+      edges.
+
+     VRML format:
+     - Added export of lineset, pointset, line properties and fill properties.
+     - Restored functionality to save file in meters as required by the VRML specification
+       (version 3.0 used millimeters after internal polygonal mesh model was changed to use
+       millimeters).
+
+     X3D format:
+     - Restored functionality to save file in meters as required by the VRML specification
+       (version 3.0 used millimeters after internal polygonal mesh model was changed to use
+       millimeters).
+
+CAD Exchanger 3.0.0, Jul 2015
+
+    SDK:
+    - Added support for generating polyline and polypoint sets for free wireframe and acorn
+      bodies by ModelAlgo_BRepMesher.
+    - Fixed thread-safety when accessing representations of shared parts when using delayed
+      loading.
+    - Fixed computation of bounding boxes for parts with B-Rep representations which have
+      internal shapes with emdedded transformation matrices.
+
+    GUI:
+    - Added switch to toggle normal of a clipping plane.
+    - Restored support of visualization mesher settings (see Options dialog box).
+
+CAD Exchanger 3.0.0 Beta, Jun 2015
+
+    SDK:
+    - Added new data model which provides API for access to assembly structure, attributes,
+      properties, multiple representations (B-Rep, polygonal), multi-LOD (Level Of Details),
+      etc.
+    - Added mechanism to handle system exception and signals (see Base_SEHOwner).
+    - Added __CADEX_OVERRIDE_ATTRIBUTE macro used instead of C++11 keyword override.
+    - Added Base_UTF16String to hold a string of UTF16 Unicode chars.
+    - Introduced parallism into the algorithm of verification and correcting B-Reps during
+      importing from ACIS, Parasolid and JT.
+
+    Meshers:
+    - Visualization mesher by default now merges individual triangle sets resulting from
+      B-Rep faces belonging to a shell. To enable previous default behavior (without merge)
+      ModelAlgo_BRepMesherParameters::MergeFaceSets() should be set to false.
+    - Visualization mesher now always computes normals for triangle sets. Previous parameter
+      [ModelAlgo_BRepMesherParameters::]SaveNormals() has been removed and may be added to the
+      exporters (X3D and VRML) in the future.
+
+    GUI:
+    - Updated 3D view light settings to better display materials.
+
+    ACIS format:
+    - Enabled support of all available ACIS versions up to R25.
+    - Enabled export of the models with shared topological entities across bodies.
+      Previously the exporter refused to export such models.
+    - Enabled determinism of the exporter - the same input model will now produce
+      the same resulting file when running in non-parallel mode.
+    - Streamlined file contents produced by the exporter: single ACIS body will be
+      created for each individual solid, sheet, wireframe and accorn source body.
+      Multiple lumps will no longer be created within each ACIS body.
+    - Added support of surface sub-type rulesur.
+    - Fixed import of coedges having pcurves on faces which share surface with other faces.
+
+    Parasolid format (also affects JT format):
+    - Enabled support of assembly structure by the exporter. Now the data model is
+      mapped to the hierarchy of assemblies, instances and parts.
+    - Added support of Parasolid partition files.
+    - Improved performance of export by execution in parallel threads on multi-core
+      systems.
+    - Enabled export of the models with shared topological entities across bodies.
+      Previously the exporter refused to export such models.
+    - Enabled determinism of the exporter - the same input model will now produce
+      the same resulting file when running in non-parallel mode.
+    - Improved assigning of unique entity node id's by the exporter.
+    - Improved performance of writing Parasolid files by execution in parallel threads
+      on multi-core systems.
+    - Improved import of intersection curves limiting blended edge (rolling ball) surfaces.
+    - Improved import of periodic intersection curves taking full period.
+    - Improved recognition of closed intersection curves during import.
+    - Fixed import of halfedges having pcurves on faces which share surface with other faces.
+    - Fixed export of rational B-Spline p-curves.
+    - Fixed computation of edge and vertex tolerances during export.
+    - Fixed potential data race when exporting models with transformation matrices attached
+      to subshapes.
+
+    JT:
+    - Added import of JT 8.x files
+    - Added support for Reference Sets and SUBNODE components in import and export.
+    - Added protection against cases when JT files may contain invalid values for vertex
+      normals (such NaN or INF).
+    - Fixed parsing of material attributes encoded using respective data bit flags.
+    - Improved recognition of PMI elements during parsing.
+    - Fixed parsing of files with orphan property atom elements.
+    - Improved parsing of files with external references sharing the same file.
+    - Improved parsing of files with broken external references.
+    - Improved processing of assemblies which use mixed units in nested assemblies and parts.
+    - Improved parsing of data encoded with two probability context tables.
+    - Enabled parsing of files containing texture coordinates.
+    - Fixed parsing of files using null codec.
+    - Fixed parsing of files with incomplete TOC (Table Of Contents) entries.
+    - Fixed parsing of files not using ZLib compression in data segments which do support
+      ZLib compression.
+    - Improved robustness on parsing files with broken internal data integrity.
+    - Improved export of multi-body parts when polygonal representation is computed on
+      the fly.
+    - Added protection for writing external files when the output directory name conflicts
+      with existing file name.
+
+CAD Exchanger 2.5.3, Dec 2014
+
+    SDK:
+    - Added support of Visual Studio 2013. Discontinued support of Visual Studio 2008.
+    - Added support of operation cancellation (see Base_ProgressStatus).
+    - Extended Netgen support - added support of 3D volume mesh generation, bounding
+      conditions, and export to CAE formats (Abaqus, Fluent, OpenFOAM).
+
+    ACIS format:
+    - Added support of Autodesk-specific color attributes.
+
+    Parasolid format (also affects JT format):
+    - Fixed export of shapes containing edges which share the same 3D curve and refer
+      to tolerant vertices.
+
+    JT format:
+    - Enabled support for non-manifold meshes, as well as meshes with incorrect triangles
+      orientation and degenerated edges.
+
+    STEP format:
+    - Added protection for edges referring to null curves
+
+CAD Exchanger 2.5.2, Aug 2014
+
+    ACIS format:
+    - Fixed setting closure and periodicity flags when exporting curves converted
+      to B-Splines.
+
+    JT format:
+    - Added support of arithmetic codec when exporting. This allowed to reduce the
+      size of the generated JT files.
+    - Fixed export of assemblies with part names containing characters illegal for
+      file names (e.g. \ / < > ? , etc).
+
+    Parasolid format (also affects JT format):
+    - Experimental support of Parasolid version 26.1 and 27 by the importer.
+    - Performance improvements in the exporter.
+    - Fixed setting closure and periodicity flags when exporting curves converted
+      to B-Splines.
+    - Fixed export of edge curves when exporting edges with tolerant vertices.
+    - Improved setting of the vertex and edge tolerances when exporting.
+    - C0 pcurves, curves and surfaces are now converted to G1-continuous when
+      exporting.
+    - Changed behavior of the exporter when processing non-manifold topology (e.g.
+      when an edge is shared by 3 or more wires or faces). Instead of a creating an
+      invalid entity structure the exporter will now drop some or all faces referring
+      to those shared edges.
+    - Fixed export of tolerant edges in very large models which previously might
+      result in stack overflow.
+    - Fixed export and import of closed sheet bodies.
+    - Fixed export of invalid disconnected solids - they are now exported as sheet
+      bodies with issuing respective failure message.
+
+CAD Exchanger 2.5.1, May 2014
+
+    General:
+    - Restored functioning on Windows XP (even if it is not officially supported)
+      broken by version 2.5.0
+
+    ACIS format:
+    - Improved consistency with ACIS format by using ATTRIB_XACIS_NAME attribute
+      name when exporting entity names.
+    - Improved consistency with ACIS format by recognizing only ATTRIB_XACIS_NAME
+      and name attribute names when importing entity names.
+
+    JT format:
+    - Improved mapping of product structure to JT LSG (logical scene graph): single
+      parts are mapped to JT parts, single assembly are mapped to JT assembly
+      without extra LSG node.
+    - Added support of external files (monolithic, perpart, fully shattered).
+    - Added user-defined parameter to influence behavior of saving files with
+      distinct names of instances and parts/assemblies they refer (to satisfy
+      limitations of Solid Edge).
+    - Added saving of mesher parameters (chordal and angular tolerances) when
+      computing a faceted representation on the fly.
+    - Performance improvements in the exporter.
+
+    Parasolid format (also affects JT format):
+    - Added support of Parasolid version 26.
+    - Fixed potential data race when multiple edges share common curve.
+    - The exporter now embeds schema types when saving to schemas greater than
+      Parasolid base schema 13006. This improves interoperability with
+      Parasolid-based applications when using Parasolid or JT formats (e.g.
+      Siemens NX, etc).
+    - Fixed export of tolerant edges lying on elementary surfaces with left-handed
+      axis.
+    - Improved importing INTERSECTION curves lying on flat cones, which
+      previously might produce wrong results.
+    - Fixed parsing binary files which may contain double which represent invalid values
+      (e.g. NAN).
+    - Performance improvements in the exporter.
+
+    Computational meshers:
+    - Suppressed Netgen's test output, which previously could contaminate standard
+      output streams (std::cout and std::cerr) and a file named test.out.
+
+    GUI:
+    - Fixed Model Explorer view: removed duplication of a root entity's child if the
+      root entity itself is an instance and not a part or an assembly (this may often
+      happen when reading ACIS files).
+    - Model Explorer view now displays names of assemblies or parts, if the instance
+      which refers to the part or assembly does not have a name itself.
+
+    SDK:
+    - On 32 bit platforms, the SDK is now built with SSE2 target to ensure better
+      consistency of computational results with the 64 platforms (especially on Linux),
+      and to retrieve some performance gain.
+    - On Linux, the SDK is now built with gcc 4.4 and links with libc 2.12.
+    - Logger now outputs hexadecimal codes for unprintable characters.
+
+CAD Exchanger 2.5.0, Feb 2014
+
+    General:
+    - When merging IndexedFaceSets (e.g. when exporting to X3D, VRML or JT formats)
+      normal coordinates are now compared with the precision of 1e-6, what may lead to
+      reduced number of unique normals. This reduces the model size without impact on
+      visualization properties.
+    - Added support for Unicode file names (except for IGES and STEP)
+    - Added support for Windows 8
+
+    SDK:
+    - Added support for Visual Studio 2012
+
+    Visualization mesher:
+    - Fixed potential data race during meshing a multi-root model when roots had
+      shared edges.
+
+    ACIS format:
+    - Enabled support of all available ACIS versions up to R24.
+    - Fixed saving topological entities into ACIS format version 10 and greater.
+    - Improved saving attributes into ACIS format version 16 and greater.
+    - Added support of surface sub-types: subsur, tubesur.
+    - Added support of degenerate_curve.
+    - Fixed import of offset surfaces with the reversed flag.
+    - Fixed import of materials stored in ACIS format version 8 and greater.
+    - Fixed import of sweep surfaces stored in ACIS format version 12, 17 and greater.
+    - Fixed import and export of offset surfaces in ACIS format version 13 and greater.
+    - Fixed import of offset curves stored in ACIS format version 17 and greater.
+    - Fixed import of blend surfaces stored in ACIS format version 3 and earlier.
+    - Fixed import of spline curves containing summary tight approximation.
+
+    IGES format:
+    - Fixed import and export of Tabulated Cylinders (type 122).
+
+    STEP format:
+    - Fixed import of surfaces of revolution on ellipses.
+
+    Parasolid, JT formats:
+    - Improved importing INTERSECTION curves lying on elementary surfaces, which
+      previously might fail to compute.
+
+    STL, VRML formats:
+    - Added support for using C++ streams in API (i.e. STL_Reader,
+      STL_Writer, VRML_Writer)
+
+    Computational meshers:
+    - Fixed case of complex edges which previously required too many sample points and
+     could lead to running out of allocated memory.
+    - Improved meshing of some complex surfaces which previously could fail due to
+      incorrect surface area approximation.
+
+CAD Exchanger 2.4.3, Dec 2013
+
+    ACIS format:
+    - Fixed import of files containing zero-length strings.
+
+    JT format:
+    - Fixed export of colors, now both diffuse and ambient component of the material
+      attribute are set.
+    - Added support of units tagged as "Unknown".
+    - Fixed import of empty LODs.
+    - Added saving area of face, line and point sets for better compliance to the JT
+      specification.
+    - Improved saving of partition and root entity names for better compliance to JT
+      sample files.
+
+    Parasolid format:
+    - Added support of Parasolid version 25.
+    - When exporting, edges can now be saved as tolerant edges depending on the source
+      value of their tolerance. Parameter selection is added into SDK and GUI.
+    - Fixed export of offset surfaces and surfaces of extrusion which previously may
+      result in incomplete Parasolid entity structures.
+    - Fixed export of surfaces of revolution (setting proper sense flag).
+    - Fixed writing file header when target schema is 9 or lower.
+    - Fixed processing of undefined values in loopback scenarios (parsing a file and
+      writing it back).
+    - Improved importing INTERSECTION curves which correspond to very long parabolas or
+      hyperbolas.
+    - Fixed parametrization of BLENDED_EDGE surfaces taking into account mutual
+      orientation of a spine curve and support elements.
+    - Improved import of BLENDED_EDGE surfaces when a support curve is oriented
+      opposite to a spine curve.
+    - Fixed import of BLENDED_EDGE surfaces when intersection of support surfaces
+      cannot be computed.
+
+    SDK:
+    - Added X3DShape_LineProperties, X3DShape_FillProperties classes.
+
+    GUI:
+    - Fixed Model Explorer (a tree view widget) to display names of instances, not
+      of parts or assemblies instances refer to. This allows to better distinguish
+      individual instances in complex assemblies.
+    - Export dialog now by default provides a name of the last imported file.
+    - If the GUI executable has been invoked with file names as extra parameters then
+      the files are opened into a new document. This allows to associate CAD Exchanger
+      GUI with file name extensions on Windows.
+
+CAD Exchanger 2.4.2, Jul 2013
+    JT format:
+    - Reduced memory footprint when importing or exporting a JT file.
+    - Fixed export of meshes containing vertices with valences greater than 64.
+    - Fixed export of compound B-Reps which previously could result in multi-LODs
+      (Level of Details) entities instead of multiple components inside a single LOD.
+    - Fixed export of part with names and with composite B-Rep representations.
+
+    ACIS format:
+    - Added support of crvsrfblendsur blend surface sub-type.
+    - Added support of var_rad_const variable radius type.
+    - Added support of blendsupcos blend surface support type.
+    - Added support of variable radius blend surfaces with supports defined via spring
+      curves.
+    - Improved import of sumsur surfaces using straight lines as v-curve.
+
+    Parasolid format:
+    - Improved import of offset surfaces with singularities.
+    - Improved import of offset surfaces on swept surfaces.
+    - Improved performance of import by execution in parallel threads on multi-core
+      systems.
+    - Fixed import of parametric curves defined as rational B-Splines.
+    - Improved import of trimmed curves without explicitly defined trimming parameters.
+    - Improved import of rolling ball surfaces with spine curve defined beyond the
+      support surfaces.
+
+    ACIS, Parasolid formats:
+    - Reworked export of empty name attributes: empty strings are now ignored.
+    - Improved import of offset surfaces on C0-continous swept surfaces. The
+      algorithm now tries harder to increase continuity of the basis surface.
+    - Offset surfaces are now exported as native offset surfaces, not as B-Spline
+      approximations.
+
+    X3D, VRML formats:
+    - Normal vectors are now written with single (not double) precision.
+
+    SDK:
+    - Suppressed output into standard output stream during conversions.
+    - Added X3DBase_NodeVisitor and X3DCore_X3DNode::Accept() to implement a visitor
+      pattern for the scene graph. The meshing example has been updated to use a
+      visitor.
+    - X3DGeometry3D_IndexedFaceSet now uses normals with single precision (float)
+      type.
+    - Base_String has been located into a separate file Base_String.hxx and now
+      completely hides STL-based implementation to avoid potential issues due to
+      STL-incompatibility issues between CAD Exchanger and customers' build
+      environments
+
+CAD Exchanger 2.4.1, Mar 2013
+    ACIS format:
+    - Improved import of pipesur entities with u0 curve going beyond the spine curve.
+
+    IGES format:
+    - Fixed import of nested assemblies which previously could result in lost colors
+      attached to subshapes.
+
+    JT format (Beta):
+    - Added support of a few other LSG attribute types in the importer.
+    - Improved export of XDE data models: maintains structure and relationship
+      between assemblies, instances and parts.
+    - Improved export of XDE data models: colors associated with entire parts
+      or instances are now converted into material attributes of the JT
+      entities (using diffuse color).
+    - Fixed import of transformations: corrected processing of transformations
+      when a part is defined in non-millimeters and when transformations are
+      attached to elements other than instances (what happens extremely rarely).
+    - Added support of exporter options: whether to save B-Rep and tessellated
+      representations in SDK and GUI.
+
+    Parasolid, JT formats:
+    - Improved import of offset surfaces on C0-continous B-Spline surfaces. The
+      algorithm now tries harder to increase continuity of the basis surface.
+
+    SDK:
+    - Added support of progress status, including new Qt-based example
+      progressindicator
+    - Added support of logging for debug purposes.
+    - Added X3DGeometry3D_IndexedFaceSetBuilder, X3DRendering_LineSetBuilder and
+      X3DRendering_PointSetBuilder as helper classes to construct indexed face
+      set, line set and point set entities respectively.
+    - Added mesh granularity (coarse, medium, fine) as a parameter for visualization
+      mesher.
+    - Added Base_EnvironmentChecker class and __CADEX_CHECK_BUILD_ENVIRONMENT macro
+      for detecting possible inconsistencies between user's and CAD Exchanger build
+      environments (compiler version, compilation mode) what facilitates triaging
+      errors caused by this.
+
+    GUI:
+    - Added possibility to choose between predefined and custom mesh granularity
+      for the triangulation settings in the Tools/Options/Triangulation menu.
+
+CAD Exchanger 2.4.0, Nov 2012
+    JT format (Beta):
+    - Fixed export of material attributes with set alpha channel.
+    - Improved performance of export by using coarse meshing by default.
+    - Improved performance of export by execution in parallel threads on multi-core
+      systems.
+
+    X3D, VRML, JT formats:
+    - Improved merging of tiny indexed face sets.
+
+    SDK:
+    - Added angular deflection parameter to Base_Mesher to control mesh quality.
+    - Parameters of Base_Mesher base class have been grouped into a nested structure
+      Base_Mesher::Parameters. Warning: this change breaks source compatibility.
+    - Fixed algorithm of merging face sets to correctly process cases when number
+      of unique normals exceeds number of unique vertices for face sets already
+      containing normal index vector.
+    - Constructors, destructor and assignment operators of Base_String made
+      out-of-line to avoid a Linux-specific issue with global symbols injected by
+      gcc implementation of basic_string, which previously might lead to sporadic
+      crashes.
+
+CAD Exchanger 2.4.0 Beta 5, Oct 2012
+    JT format (Beta):
+    - Fixed Bitlength2 encoder when storing vectors of INT_MIN values.
+    - Fixed disassembler of float numbers into integers used in exporter.
+    - JT exporter now generates and writes mesh (tessellated) representations for B-Rep
+      making files saved by CAD Exchanger viweable by 3rd-party JT viewers which only
+      support tessellated representations.
+
+    SDK:
+    - New experimental methods added to X3DGeometry3D_IndexedFaceSet to access mesh data
+      more conveniently.
+    - When merging face sets during creation of a mesh model from B-Rep, individual
+      B-Rep faces (e.g. resulting from IGES Trimmed Surface entities) are now processed.
+      This ensures consistency with behavior of single face shells.
+    - Exposed API to own memory allocator (Base_Allocator.hxx, still in cadex::internal
+      namespace) to reduce allocations outside of it, and thereby to reduce overall
+      memory footprint.
+
+CAD Exchanger 2.4.0 Beta 4, Oct 2012
+    ACIS format:
+    - Fixed import of cones lying on ellipses with major-to-minor ratio almost 1. (e.g.
+      due to rounding errors in sending system).
+
+    JT format (Beta):
+    - Significantly improved performance of parsing JT files.
+
+    Computational meshers:
+    - Fixed file handle leak in Netgen which previously could result in failure to write
+      any file after meshing a complex model.
+    - Fixed Netgen mesher to try harder to process a model if it could not be meshed
+      during a first attempt.
+    - Reduced verbosity of debug messages.
+    - Significantly reduced memory footprint when using the Netgen mesher.
+    - Added more fine-grain update of the progress indicator when using the Netgen mesher.
+
+    SDK:
+    - Added method X3DGeometry3D_IndexedFaceSet::OnlyTrianglesSupported() to check if
+      X3DGeometry3D_IndexedFaceSet can only support triangles (currently the case) to
+      prepare for future extension for arbitrary polygonal faces.
+    - When merging face sets during creation of a mesh model from B-Rep, really coincident
+      vertices are now replaced with a single vertex removing duplicates. Normals are
+      converted into using NormalIndex() field to enable support of different normals for
+      shared vertices. This is also used in X3D and VRML exporters.
+
+    X3D and VRML formats:
+    - Changed behavior of merging faces when exporting. See the SDK section above for
+      details.
+
+CAD Exchanger 2.3.3, Aug 2012
+    JT format (Beta):
+    - Fixed export and import of empty shapes.
+
+CAD Exchanger 2.4.0 Beta 3, Jul 2012
+    GUI:
+    - Progress bar now gets updated more frequently during IGES and STEP import
+      operations thereby better reflecting progress during longer imports. This also
+      can take effect during ACIS and Parasolid imports, when there is only one root
+      entity.
+    - The triangulation configuration widget now allows to set absolute value for the
+      visualization mesh, and also shows the relative value of the specified deflection.
+    - License can now be activated directly via GUI.
+
+    SDK:
+    - More details in the Developer's Guide on measurement units and parameters of
+      the Netgen meshing algorithm.
+    - BaseXDE_DocModel now can return an underlying XDE document.
+
+    IGES format:
+    - Fixed import of Boundary entity containing Composite Curve of multiple segments
+      for both model space and parametric space curves.
+    - Fixed import of almost closed Circular Arc entity.
+
+    Parasolid format:
+    - Added support for a target version of the Parasolid kernel. Versions up to 24 are
+      supported. Corresponding control also added to GUI.
+
+    JT format (Beta):
+    - Changed default ZLib compression level to 1 (i.e. the fastest) in exporter.
+    - Fixed export of B-Rep models.
+
+CAD Exchanger 2.4.0 Beta 2, Jun 2012
+    JT format (Beta):
+    - Added JT format exporter.
+
+CAD Exchanger 2.3.2, Jun 2012
+    JT format (Beta):
+    - Added import of Wireframe Rep elements.
+    - Fixed import of JT B-Rep element's trival pcurves on surfaces with range
+      different than [0,1;0,1].
+    - Fixed import of Part nodes to support conversion of multiple B-Rep elements.
+    - Added support for JT B-Rep element pcurves with the trivial box loop type.
+    - Fixed import of degenerated JT B-Rep elements that may have no geometrical or
+      topological data.
+    - Fixed parsing of entities with specific configurations (e.g. JT B-Rep element
+      containing CAD Tag Data, rational NURBS without explicit weights, etc).
+    - Added support for units other than millimeters for JT B-Rep and Wireframe Rep
+      elements.
+
+    Parasolid and JT formats:
+    - Improved accuracy of importing intersection curves by reconstructing them via
+      intersection of the parent analytical surfaces.
+
+    ACIS format:
+    - Fixed parsing of rolling ball surfaces for ACIS-SAT files of version 13.
+
+    ACIS, Parasolid, and JT formats:
+    - Improved import of files with pcurves with ranges different from ones of 3d curves,
+      and when 3d curve ends are quite far from the pcurve's restored via surface.
+    - Improved import of co-edges (or half-edges) by not relying on same parametrization
+      assumption between pcurve(s) and 3D curve, and attempting to adjust pcurve if
+      deviation between the curves is too large.
+    - Improved continuity of imported rolling ball surfaces taking into account
+      continuity of the spine curve only and ignoring possible C0-continuity of the
+      support curves.
+    - Improved robustness and performance of importing rolling ball surfaces.
+
+    SDK:
+    - Fixed a leak which occured when a BaseXDE_DocModel object was created with default
+      constructor.
+    - BaseXDE_DocModel::Roots() now skips the root shapes which have attached
+      transformations and refer to the shapes which have attached invisible layer.
+
+CAD Exchanger 2.4 Beta, Apr 2012
+    JT format:
+    - Added initial support of JT read support as a Beta feature. Scope includes
+      XT B-Rep and JT B-Rep elements.
+
+    Meshers:
+    - Improved consistency between visualization and computational meshers:
+      - assembly structures are now preserved when using computational meshers;
+      - normals can now be stored when using computational meshers;
+      - shells' faces with attached transformations now always apply these
+        transformations to coordinates;
+      - materials with the same attributes are now always shared, not cloned.
+    - Improved performance of computational meshers due to reusing results of meshed
+      assembly component instances.
+    - Meshers now always favor assembly structure, what may lead to loss of colors
+      attached to different component instances (or sub-shapes thereof) due to
+      limitation of the X3D format data model (used to represent a mesh model).
+
+    ACIS and Parasolid formats:
+    - Importers now try harder to upgrade C0-continous surfaces underlying offset
+      surfaces to C1-continuity (previously swept surfaces on C0-curves always
+      failed). C1-continuity of underlying surfaces is a requirement of CAD Exchanger
+      geometrical model.
+
+    Parasolid format:
+    - Fixed import of SWEPT_SURF surfaces lying on reversed profiles. Applied similar
+      fix to SPUN_SURF anticipating the same convention to be used by Parasolid, even
+      if no such files have been encountered so far (among 1100+ files).
+
+    SDK:
+    - Added Base_Version.hxx to take into account SDK versions in conditional
+      compilation
+    - Removed unused Base_Settings values
+    - Slight extension of X3DCore_X3DNode subclasses to create X3D scene graph nodes
+      by cloning existing nodes (used internally).
+
+CAD Exchanger 2.3.1, Feb 2012
+    General:
+    - Fixed triangulation of particular types of NURBS surfaces with singularities,
+      which previously could result in a crash or wrong triangulation.
+    - Fixed particular case of NURBS p-curves which might appear when importing
+      ACIS, Parasolid, or STEP faces on closed surfaces without a seam-edge.
+    GUI:
+    - Fixed excessively strict check that previously prevented export of an entire
+      document to ACIS or Parasolid, even if the incompliant sub-shape was checked-off
+      in the tree view.
+    SDK:
+    - Removed debug output when running examples on Linux.
+    - Added demonstration of using normals in the meshing example.
+    IGES format:
+    - Added methods to IGES_Reader (SDK API) to specify processing of blank entities.
+    STL format:
+    - Fixed export of several nested compounds with attached transformations, which
+      previously resulted in writing wrong point coordinates.
+    Parasolid format:
+    - Added support of importing edges which have both 3D curve and parametric space
+      curve (p-curve), to be able to read (extremely rare) files which do not comply
+      with Parasolid-XT specification.
+
+CAD Exchanger 2.3, Dec 2011
+    General:
+    - Added support for 64bit.
+    SDK:
+    - Linux binaries are now built with glibc 2.5 enabling support of broader set of
+      distributions.
+    IGES format:
+    - Fixed export to IGES version >= 5.1 when using IGES solid/shell/faces entities.
+    STEP format:
+    - Fixed export to files with units other than millimeters.
+    ACIS format:
+    - Fixed import of sweepsur type stored in SAT format version 13 and older.
+
+CAD Exchanger 2.3 Beta3, Oct 2011
+    Computational Meshers:
+    - Added support of non-manifold shapes sharing faces between various components
+     of composite shapes (e.g. Compounds/Groups).
+    SDK:
+    - Added support for Visual Studio 2010.
+    - Extended Base_Mesher API to accept a user-defined deflection parameter, which
+      impact on visualization mesh precision.
+    - Added detailed documentation and GNU Makefiles for examples.
+    - Refactored examples to be more focused on primary demonstrated functionality.
+    - Changed directory structure - debug libraries are now placed separately (into
+      libd and bind directories).
+
+CAD Exchanger 2.3 Beta 2, Aug 2011
+    GUI:
+    - Added support of computational meshing algorithms Mefisto and Netgen.
+    IGES format:
+    - Fixed regression that might cause loss of Bounded Surface entities (IGES type 143).
+    STL format:
+    - Fixed import of ascii files which previously could result in data loss.
+    VRML format:
+    - Added possibility to export Mesh models in GUI and CLI.
+    X3D format:
+    - Added possibility to export Mesh models in GUI and CLI.
+    Netgen mesher:
+    - Added more parameters (mesh granularity, segments-per-edge, etc).
+    - Fixed memory leak.
+
+CAD Exchanger 2.3 Beta, Aug 2011
+    Parasolid format:
+    - Added protection against color component values exceeding allowed range (may happen
+      due to rounding errors when using binary format).
+    SDK:
+    - Added initial support of meshing algorithms Mefisto and Netgen to build computational
+      mesh (in addition to visualization mesh).
+
+CAD Exchanger 2.2.2, Jun 2011
+    ACIS format:
+    - Fixed import of cones with scaling coefficient stored in SAT version prior to ACIS 4.0.
+    - Fixed import of lemon-like toroidal surfaces.
+    BRep format:
+    - Fixed exporter to correctly write file header.
+    Parasolid format:
+    - Fixed export of special configuration of swept surfaces (when basis curve is
+      defined with explicit trimming).
+    - Fixed export of solid bodies with voids.
+    - Fixed import of lemon-like toroidal surfaces.
+    STL format:
+    - Fixed export of surface models containing empty groups, which previously might crash.
+    VRML format:
+    - Characters in node names not compliant with the VRML specification are now replaced
+      with underscore ('_', ascii code x5F) during export.
+    SDK:
+    - X3DBase_SFString now uses std::string to represent a UTF-8 string to match the X3D
+      specification (ISO19775).
+
+CAD Exchanger 2.2.1, May 2011
+    IGES format:
+    - Fixed export of extruded surfaces with boundary edges having transformation matrices.
+    - Fixed import of files containing blank entities. They are now really ignored if the
+      check-box "Skip blank entities" is checked in GUI.
+    Parasolid format:
+    - Fixed import of large binary files with entity rank numbers exceeding 32767 which
+      have specific encoding rules.
+    VRML format:
+    - Added support of names.
+    X3D format:
+    - Added support of names.
+    GUI:
+    - Fixed memory leak in texture mapping when working with multiple document windows.
+    - Added protection against a possible crash when using a mouse wheel to zoom in large
+      models.
+    SDK:
+    - Added support of std::istream, std::ostream objects into API of base classes Base_Reader
+      and Base_Writer. New syntax is currently supported by ACIS, Parasolid and BRep
+      converters.
+
+CAD Exchanger 2.2, Apr 2011
+    Parasolid format:
+    - Added support of neutral binary format (.x_b and .xmt_bin file name extensions) in
+      importer and exporter.
+    ACIS-SAT format:
+    - Improved import of spline curves by creating more accurate 3D representation from
+      2D (parametric curve) and surface, ignoring tolerance specified in a file if needed.
+    - Improved robustness of export of edge p-curves - resulting p-curve ignores edge
+      range if it exceeds natural range of original p-curve.
+    X3D and VRML format:
+    - Improved export of sub-shapes with transformations - Transform entities are now
+      explicitly created and sub-shapes are shared instead of creating individual
+      instances of IndexedFaceSet entities with transformed coordinates. This
+      significantly reduces file size in the case of assemblies.
+    - Improved export of colors - sub-shapes with the same color now share an Appearance
+      entity instance instead of copying it.
+    SDK:
+    - Added CadExBRepMesh library that encapsulates a triangulation algorithm.
+    - Discontinued support of Visual Studio 2005.
+
+CAD Exchanger 2.1, Mar 2011
+    ACIS-SAT format:
+    - Fixed import of reversed edges on reversed B-Spline curves.
+    - Fixed import of partner co-edges belonging to faces on a shared surface.
+    - Color and name attributes attached to not topological entities (surfaces, curves, etc)
+      are now safely ignored.
+    Parasolid-XT format:
+    - Added support for BLENDED_EDGE surfaces with cliff bound defined as a line not going
+      through the spine's tube.
+    - Added support for BLENDED_EDGE surfaces with spine curve defined as infinite line.
+    - Fixed import of BLENDED_EDGE surfaces with spine curve with reversed orientation.
+    - Fixed import of INTERSECTION curves with scale parameter different from default.
+    - Importer can now reverse pcurves incorrectly oriented with respect to owning
+      FIN (HALFEDGE).
+
+CAD Exchanger 2.1 Beta, Feb 2011
+    GUI:
+    - Entity names are now displayed in the Model Explorer view.
+    - Changed navigation in 3D view - zoom in/out and rotation are now performed with a
+      middle mouse button and a wheel. Added navigation help widget.
+    - Hidden shapes are now always ignored when exporting to any format (thus removing
+      previous limitations of IGES, STEP, ACIS and other formats).
+    - Added "All supported types (*.*)" filter to the file import dialog box.
+    - File export dialog box now allows to specify case-sensitive filename extensions without
+      appending prescribed ones (e.g. myfile.STEP instead of myfile.STEP.stp in the past).
+    - Both file and 3D view export dialog boxes now enforce the target format and filename
+      extension as defined by selected filter type.
+    SDK:
+    - Base_ShapeMesher and BaseXDE_Mesher now scale the coordinates down to meters when
+      converting shape and XDE models to mesh (which must be in meters per the X3D spec).
+    - Root shapes of the XDE model attached to invisible layer(s) are now ignored when
+      exporting to IGES, STEP, ACIS and when converting to mesh model by BaseXDE_Mesher.
+    - Base class Base_Writer now has the IsValid() method to verify if the model complies
+      with the destination format. Static methods ACIS_Writer::IsValid() and
+      Para_Writer::IsValid() renamed to CheckValid().
+    Parasolid-XT format:
+    - Added Parasolid-XT export. Scope includes geometry, topology and attributes (colors
+      and names).
+    - Improved import of particular cases of BLENDED_EDGE defined on elementary surfaces
+      (cylindrical, etc).
+    ACIS-SAT format:
+    - Respective surfaces of revolution are now recognized and encoded as cylinders.
+    - Improved thread-safety in exporter: fixed potential data race in the case of shared
+      underlying geometry (which normally never happens).
+    - Bezier surfaces are now directly converted to B-Splines without possible
+      re-approximation.
+    VRML format:
+    - Added support of colors.
+    - META section strings now may contain non-ASCII characters.
+    - Added user-defined option to merge IndexedFaceSets resulting from one shell.
+    X3D format:
+    - Added support of colors.
+    - Added support of saving face normals (controled by user option) to enable smooth shading
+      display in 3rd-party viewers.
+    - Added user-defined options to save author and company names via GUI (to be consistent
+      with other formats)
+    - Added user-defined option to merge IndexedFaceSets resulting from one shell.
+
+CAD Exchanger 2.0.2, Nov 2010
+    ACIS-SAT format:
+    - Fixed writing of coedge entities when exporting to ACIS-SAT format v2.
+    Parasolid-XT format:
+    - During import, file units are now interpreted as meters (to match Parasolid
+      conventions).
+    - Added support of name attributes.
+    GUI:
+    - Added toolbar to enable providing immediate feedback, notification about new releases,
+      connection errors, etc.
+    - Error message is now issued when trying to export a document without surface models
+      to IGES, STEP, or other format except STL.
+    - Fixed saving screenshots on Windows Vista and above.
+
+CAD Exchanger 2.0.2 Beta 2, Nov 2010
+    Parasolid-XT format:
+    - Fixed import of transformation matrices.
+    - Added support of colors.
+    ACIS-SAT format:
+    - Fixed import and export of B-Splines with multiplicities of boundary knots less than a
+      degree.
+    - P-curves are now trimmed to match an edge's range during export, to ensure more
+      robust reading by 3rd-party importers.
+    - Ranges for edges on periodic curves and corresponding p-curves are now specified in
+      ACIS conventions (e.g. [-PI,PI] instead of former [0, 2*PI] for ellipses).
+    - If a closed face (e.g. with seam-edge) lies on a cylindrical surface and their ranges
+      are not aligned, then a surface is now rotated during export (to have ranges aligned).
+      This is to ensure more robust reading by 3rd-party importers.
+
+CAD Exchanger 2.0.2 Beta, Oct 2010
+    Parasolid-XT format:
+    - Added Parasolid-XT import. Current scope includes geometry only. For additional
+      limitations refer to Release Notes.
+    ACIS-SAT format:
+    - More robust approximation of Bezier and Offset surfaces with B-Splines before export to
+      ACIS.
+
+CAD Exchanger 2.0.1, Sep 2010
+    General:
+    - Added protection against empty (sub-)shapes when converting to mesh formats (STL, VRML,
+      X3D).
+    GUI and CLI:
+    - Added exceptions handling what allows to continue application functioning.
+    SDK:
+    - New library CadExAlgo that encapsulates algorithms shared by ACIS, Parasolid and other
+      converters.
+    ACIS-SAT format:
+    - More reliable processing of faces that share the same underlying surface.
+    - More reliable processing of faces with seam-edges (i.e. shared twice by the same face).
+    - Added support of ellipses with major radius less than minor.
+    - Improved thread-safety of importer.
+    STL format:
+    - GUI and CLI: Faces without underlying triangulation are now silently ignored instead of
+      crashing the application.
+
+CAD Exchanger 2.0, Jun 2010
+    General:
+    - Added support of new format X3D.
+    - Extended support of multi-threading on multi-core systems.
+    SDK:
+    - Added support for MacOS and Linux.
+    - Substantially redesigned API to offer more structured and explicit set of classes (each
+      supported format now has explicit reader and writer classes).
+    - Added mesh data model based on X3D format (ISO19775) and converter from shape to mesh
+      model.
+    - Added XDE-based data model that wraps Open CASCADE XDE/OCAF; added readers and writers
+      in ACIS, BRep, IGES and STEP to convert to/from XDE data model.
+    - Added API for user-defined settings (see cadex::Base_Settings).
+    - Visual Studio 2005 binaries now depend on RTM'ed version of Visual Studio (8.0.50608.0).
+      Thus, there is no need to pre-install VS2005 SP1 run-time redistributables.
+    - Added SDK Developer's Guide and Installation Guide - see ./doc/html/index.html.
+    - Added several examples demonstrating conversion using SDK.
+    - Enabled automatic linking with SDK libraries when compiling on Windows.
+    - Added support of transformations associated with subshapes into mesher, to prevent
+      crashes that previously may happen during export to X3D, VRML or STL.
+    ACIS-SAT format:
+    - Enabled multi-threaded conversion on multi-core systems
+    - Fixed parsing of rbblnsur (rolling ball blend) surfaces for SAT format versions
+      12.0-15.0.
+    - Added support of free vertices (not belonging to edges) into exporter.
+    - Increased robustness to corner cases - empty (sub)shapes, Open CASCADE shapes with
+      internal or external orientation.
+    - Added support of torii with zero uv-direction into importer.
+    - Added support of edges shared by more than 2 faces into exporter.
+    - Added support of name attributes into importer and exporter.
+    - Fixed export of colors and names from XDE assemblies.
+    - Changed ACIS_AttrWriter API to not depend on Open CASCADE.
+    - Dynamic library renamed from ACISOCC to CadExACIS for consistency with other formats.
+    STL format:
+    - SDK now produces smaller ASCII files due to more compact form of the vertex and normals
+      coordinates.
+    - GUI: Fixed bug of writing incorrect number triangles when exporting surface models into
+      binary STL format.
+    VRML format:
+    - Fixed bug of potential memory corruption that could lead to a crash.
+    X3D format:
+    - Added as new format. Currently has export only (see X3D_Writer).
+    GUI:
+    - Fixed regression in RC1 that prevented app start on systems without Visual Studio 2005
+      RTM run-time.
+
+Beta Update 2 Public (build 423), Jan 2010
+    General:
+    - Added Command Line Interface (CLI) mode which enables translation in batch mode. Start
+      'CAD Exchanger Command Prompt' from the Start menu or invoke 'ExchangerConv.exe --help'
+      to get usage details.
+    - Added CAD Exchanger Software Development Kit (SDK) which enables integration of CAD
+      Exchanger software libraries into customer applications. For details please contact
+      info@cadexchanger.com.
+    - Improved performance of computation of surface model triangulations; this affects import,
+      changing display modes and changing triangulation precision operations. Additional gain
+      can be received on multi-core systems due to execution in parallel threads.
+    GUI:
+    - Slightly improved visual settings for more stylish appearance of 3D models.
+    - Added export of 3D view contents to PNG and BMP formats.
+    - Added option to apply multi-threading for computation-intensive algorithms (currently
+      affects triangulation computation only).
+    ACIS-SAT format:
+    - Added support of colors to import and export.
+    - Exporter now has a user-defined option to specify target ACIS format version (from 2.0
+      to 20.0)
+
+Beta Update 2 Invitational (build 371), Dec 2009
+    ACIS-SAT format:
+    - Added support for transformations with reflection, shear and scaling.
+    - Added support for variable radius blend surfaces with round_chamfer and rotated_ellipse
+      radius types.
+    - Added processing of blend support of the blendsupzro type.
+    - Improved processing of coedges using pcurves sub-ranges and/or when 3d curve and pcurve
+      use different parametrization ranges
+
+Beta Update 2 Invitational (build 359), Nov 2009
+    - Fixed a bug of losing gradient background in 3D view after closing a
+      neighbor document
+    - Improved performance of importers and exporters.
+    - ACIS-SAT: added ACIS-SAT import and export. Current scope includes geometry
+      only. For additional limitations refer to Release Notes.
+    - STL: fixed bug in writing binary files which prevented correct reading by
+      some STL viewers.
+
+Beta Update 1, Jul 2009
+    - New display mode - triangulation. Displays underlying triangulation of
+      surface models; equivalent to wireframe mode for mesh models.
+    - Ability to change precision of the surface models triangulation. This
+      parameter affects visualization quality and conversion of the surface
+      models into mesh formats (such as STL, VRML, etc)
+    - VRML 2.0 (1997) export is now supported. Current scope includes
+      geometry only.
+    - BRep importer now always ignores stored triangulation and uses
+      user-defined value of the triangulation precision.
+    - BRep and STL exporters now do not export hidden models (i.e. unchecked
+      in the Model Explorer). IGES and STEP exporters still export them.
+    - Automatic checking for updates. User will be automatically notified when
+      new product releases become available.
+    - Skipping invisible (blank) entities when importing IGES files at user's
+      discretion.
+
+Beta, Apr 2009
+    - Initial release

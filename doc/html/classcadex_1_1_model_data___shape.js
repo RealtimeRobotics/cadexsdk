@@ -1,0 +1,25 @@
+var classcadex_1_1_model_data___shape =
+[
+    [ "Iterator", "classcadex_1_1_model_data___shape_1_1_iterator.html", "classcadex_1_1_model_data___shape_1_1_iterator" ],
+    [ "ModelData_Shape", "classcadex_1_1_model_data___shape.html#a37a0bc366d1a1d970af6304a61eb943f", null ],
+    [ "ModelData_Shape", "classcadex_1_1_model_data___shape.html#ad7e2eeba79982f2d960756c86eb212f9", null ],
+    [ "ModelData_Shape", "classcadex_1_1_model_data___shape.html#add3a05689d3935d12c7e87a5e5706e4f", null ],
+    [ "~ModelData_Shape", "classcadex_1_1_model_data___shape.html#a29881817dad30994db04b9b817dc9fd7", null ],
+    [ "ModelData_Shape", "classcadex_1_1_model_data___shape.html#a636da3d8115eb32f17f5d037986b8464", null ],
+    [ "ModelData_Shape", "classcadex_1_1_model_data___shape.html#a070e32ecbb6b2f7906fdf45794103984", null ],
+    [ "Impl", "classcadex_1_1_model_data___shape.html#aa214320fbbe212d53f873ae52bd2e7bc", null ],
+    [ "IsEqual", "classcadex_1_1_model_data___shape.html#ab2583872df344f2683ddde3e05e74a0a", null ],
+    [ "IsNull", "classcadex_1_1_model_data___shape.html#acd846372b859144cefa27a1b570c64e9", null ],
+    [ "IsSame", "classcadex_1_1_model_data___shape.html#a6ab5137c2319edff5d8a07ca9677a140", null ],
+    [ "Nullify", "classcadex_1_1_model_data___shape.html#afa21d6562cb9fa64778d03f96396ced4", null ],
+    [ "operator bool", "classcadex_1_1_model_data___shape.html#ad691ae72cabe3fb1a3c09c9243eb7c19", null ],
+    [ "operator const TopoDS_Shape &", "classcadex_1_1_model_data___shape.html#af7b72286a22842b335bcbad42036ac6a", null ],
+    [ "operator=", "classcadex_1_1_model_data___shape.html#afa63bcd7152d3c278595cda90f7422a5", null ],
+    [ "operator=", "classcadex_1_1_model_data___shape.html#aaf023dd51f759d1dec1ea5ae1a2489b3", null ],
+    [ "Orientation", "classcadex_1_1_model_data___shape.html#a83490a9ab20da4c8efba2ff3fd9c6358", null ],
+    [ "Oriented", "classcadex_1_1_model_data___shape.html#a3cf877cee20648780c1d1f45a639bbd2", null ],
+    [ "Reversed", "classcadex_1_1_model_data___shape.html#a082c8e1460bd794a8e0184905a2bd574", null ],
+    [ "Type", "classcadex_1_1_model_data___shape.html#a89123c0c003456526985edf0dd9efaee", null ],
+    [ "internal::ModelData_ShapeIteratorImpl", "classcadex_1_1_model_data___shape.html#a6cd79a01baf206ec9e52830af7ba8b30", null ],
+    [ "myImpl", "classcadex_1_1_model_data___shape.html#ae18bc6e7f8d699e5951e552bb04cc78f", null ]
+];

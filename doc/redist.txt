@@ -1,0 +1,13 @@
+List of redistributable files for CAD Exchanger SDK:
+
+Windows:
+<installdir>/win*/*/bin/*.dll
+
+Linux:
+<installdir>/lin*/*/lib/lib*.so
+
+MacOS:
+<installdir>/mac*/*/lib/lib*.dylib
+
+Debug libraries containing the 'd' suffix in their names (e.g. CadExBRepd.dll) may not be
+distributed.

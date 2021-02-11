@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/BaseViewerWindow.qml</file>
+    </qresource>
+</RCC>

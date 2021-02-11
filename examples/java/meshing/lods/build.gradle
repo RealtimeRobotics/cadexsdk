@@ -1,0 +1,5 @@
+apply from: '../../cadex_example_template.gradle'
+
+dependencies {
+    implementation "cadex:CadExCoreJava@jar"
+}

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7E4BB083-12FB-4BC5-A189-19FCEFDD3B5A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>baseviewer</RootNamespace>
+    <AssemblyName>baseviewer</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\build\visualization\winforms\baseviewer\Debug\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <OutputPath>..\..\..\build\visualization\winforms\baseviewer\Release\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>queue</ErrorReport>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="CadExCoreNet">
+      <HintPath>..\..\..\..\..\csharp\win64\CadExCoreNet.dll</HintPath>
+    </Reference>
+    <Reference Include="CadExSTEPNet">
+      <HintPath>..\..\..\..\..\csharp\win64\CadExSTEPNet.dll</HintPath>
+    </Reference>
+    <Reference Include="CadExViewNet">
+      <HintPath>..\..\..\..\..\csharp\win64\CadExViewNet.dll</HintPath>
+    </Reference>
+    <Reference Include="CadExViewOpenGlNet">
+      <HintPath>..\..\..\..\..\csharp\win64\CadExViewOpenGlNet.dll</HintPath>
+    </Reference>
+    <Reference Include="CadExViewWinForms">
+      <HintPath>..\..\..\..\..\csharp\win64\CadExViewWinForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseViewer.Designer.cs">
+      <DependentUpon>BaseViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseViewerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseViewerWindow.Designer.cs">
+      <DependentUpon>BaseViewerWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\common\BaseViewerApplication.cs" />
+    <Compile Include="..\..\..\cadex_license.cs" />
+    <Compile Include="..\..\..\Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

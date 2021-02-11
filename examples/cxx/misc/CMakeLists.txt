@@ -1,0 +1,8 @@
+add_subdirectory("logging")
+#add_subdirectory("occbrep")
+#add_subdirectory("occimpexp")
+#add_subdirectory("occxde")
+add_subdirectory("progressindicator")
+if (BUILD_QT_EXAMPLES)
+    add_subdirectory("progressindicatorgui")
+endif()
