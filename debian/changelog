@@ -1,5 +1,5 @@
-cadexsdk (3.9.1-1) unstable; urgency=medium
+cadexsdk (3.9.1-1) bionic; urgency=medium
 
   * Initial release
 
- -- Neil Roza <neil@rtr.ai>  Thu, 11 Feb 2021 17:45:11 +0000
+ -- Neil Roza <neil@rtr.ai>  Thu, 11 Feb 2021 22:30:00 +0000
