@@ -1,3 +1,9 @@
+cadexsdk (3.9.1-1ubuntu4) bionic; urgency=medium
+
+  * debhelper compat 11
+
+ -- Neil Roza <neil@rtr.ai>  Tue, 16 Feb 2021 22:10:30 +0000
+
 cadexsdk (3.9.1-1ubuntu3) bionic; urgency=medium
 
   * ed debian/rules: add override_dh_{clean,test,build}
