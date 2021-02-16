@@ -15,6 +15,12 @@ export DH_VERBOSE = 1
 %:
 	dh $@
 
+override_dh_clean:
+
+override_dh_test:
+
+override_dh_build:
+
 override_dh_install:
 	mkdir -vp \
 		debian/cadexsdk/usr/lib/$(DEB_HOST_MULTIARCH)
