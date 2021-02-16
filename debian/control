@@ -2,7 +2,7 @@ Source: cadexsdk
 Priority: optional
 Maintainer: Neil Roza <neil@rtr.ai>
 Build-Depends:
- debhelper-compat (= 11),
+ debhelper (>= 11),
  libfreeimage-dev,
  libfreetype6-dev,
  libglvnd-dev,
