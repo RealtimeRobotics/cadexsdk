@@ -1,3 +1,9 @@
+cadexsdk (3.9.1-1ubuntu7) focal; urgency=medium
+
+  * debhelper-compat 12
+
+ -- Neil Roza <neil@rtr.ai>  Wed, 17 Feb 2021 19:01:16 +0000
+
 cadexsdk (3.9.1-1ubuntu6) bionic; urgency=medium
 
   * ed debian/control: libqt5core5 -> libqt5core5a
