@@ -1,3 +1,9 @@
+cadexsdk (3.9.1-1ubuntu6) bionic; urgency=medium
+
+  * ed debian/control: libqt5core5 -> libqt5core5a
+
+ -- Neil Roza <neil@rtr.ai>  Wed, 17 Feb 2021 15:28:07 +0000
+
 cadexsdk (3.9.1-1ubuntu5) bionic; urgency=medium
 
   * ed debian/control: add Homepage, Vcs-Git, Vcs-Browser
