@@ -25,7 +25,7 @@ Depends:
  libfreeimage3,
  libfreetype6,
  libgl1,
- libqt5core5,
+ libqt5core5a,
  libqt5gui5,
  libqt5qml5,
  libqt5quick5,
