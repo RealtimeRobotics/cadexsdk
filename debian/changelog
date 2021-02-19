@@ -1,3 +1,9 @@
+cadexsdk (3.9.1-1ubuntu9) focal; urgency=medium
+
+  * Build-Depends libnglib-dev, Depends libnglib-6.2.1804
+
+ -- Neil Roza <neil@rtr.ai>  Fri, 19 Feb 2021 15:54:49 +0000
+
 cadexsdk (3.9.1-1ubuntu7) focal; urgency=medium
 
   * debhelper-compat 12
