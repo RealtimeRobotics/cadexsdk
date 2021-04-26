@@ -31,11 +31,7 @@ override_dh_install:
 	mkdir -vp \
 		debian/$(regpkg)/usr/lib/$(DEB_HOST_MULTIARCH)
 	cp -vdR \
-		lin64/gcc7/lib/libCadEx* \
-		lin64/gcc7/lib/libgeom.so \
-		lin64/gcc7/lib/libnglib.so \
-		lin64/gcc7/lib/libsalome.so \
-		lin64/gcc7/lib/libvis.so \
+		lin64/gcc7/lib/* \
 		debian/$(regpkg)/usr/lib/$(DEB_HOST_MULTIARCH)
 	mkdir -vp \
 		debian/$(devpkg)/usr/include
