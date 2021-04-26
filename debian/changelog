@@ -1,3 +1,20 @@
+cadexsdk (3.9.1-2) bionic; urgency=medium
+
+  * debhelper-compat 12
+  * Update changelog for 3.9.1-1ubuntu7 release
+  * Build-Depends libnglib-dev, Depends libnglib-6.2.1804
+  * Update changelog for 3.9.1-1ubuntu9 release
+  * Revert "Build-Depends libnglib-dev, Depends libnglib-6.2.1804"
+    This reverts commit 3e3783543063525bbe4b888f2c0ca413f2ecace1.
+  * ed debian/rules: install lin64/gcc7/lib/libnglib.so
+  * Update changelog for 3.9.1-1ubuntu11 release
+  * co ubuntu/bionic -- debian
+  * change bin package names
+  * ed debian/rules: cleaner lib install
+  * add debian/patches
+
+ -- Neil Roza <neil@rtr.ai>  Mon, 26 Apr 2021 22:51:14 +0000
+
 cadexsdk (3.9.1-1ubuntu10) bionic; urgency=medium
 
   * install libnglib.so
