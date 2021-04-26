@@ -1,7 +1,13 @@
 #!/usr/bin/make -f
+
 # See debhelper(7) (uncomment to enable)
 # output every command that modifies files on the build system.
 export DH_VERBOSE = 1
+
+# Packages are listed in the order they appear in debian/control.
+# https://manpages.debian.org/dh_listpackages
+regpkg = $(word 1, $(shell dh_listpackages))
+devpkg = $(word 2, $(shell dh_listpackages))
 
 # see FEATURE AREAS in dpkg-buildflags(1)
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
@@ -23,16 +29,16 @@ override_dh_build:
 
 override_dh_install:
 	mkdir -vp \
-		debian/cadexsdk/usr/lib/$(DEB_HOST_MULTIARCH)
+		debian/$(regpkg)/usr/lib/$(DEB_HOST_MULTIARCH)
 	cp -vdR \
 		lin64/gcc7/lib/libCadEx* \
 		lin64/gcc7/lib/libgeom.so \
 		lin64/gcc7/lib/libnglib.so \
 		lin64/gcc7/lib/libsalome.so \
 		lin64/gcc7/lib/libvis.so \
-		debian/cadexsdk/usr/lib/$(DEB_HOST_MULTIARCH)
+		debian/$(regpkg)/usr/lib/$(DEB_HOST_MULTIARCH)
 	mkdir -vp \
-		debian/cadexsdk-dev/usr/include
+		debian/$(devpkg)/usr/include
 	cp -vdR \
 		inc/cadex \
-		debian/cadexsdk-dev/usr/include
+		debian/$(devpkg)/usr/include
