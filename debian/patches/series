@@ -1,0 +1,3 @@
+0001-rm-lin64-gcc7-lib-libfree.patch
+0002-rm-f-lin64-gcc7-lib-libtbb.patch
+0003-patchelf-lin64-gcc7-lib-libvis.so.patch
