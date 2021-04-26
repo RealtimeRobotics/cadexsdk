@@ -1,21 +1,15 @@
-cadexsdk (3.9.1-1ubuntu11) focal; urgency=medium
+cadexsdk (3.9.1-1ubuntu10) bionic; urgency=medium
 
+  * install libnglib.so
   * Revert "Build-Depends libnglib-dev, Depends libnglib-6.2.1804"
-  * ed debian/rules: install lin64/gcc7/lib/libnglib.so
 
- -- Neil Roza <neil@rtr.ai>  Mon, 22 Feb 2021 22:21:51 +0000
+ -- Neil Roza <neil@rtr.ai>  Mon, 22 Feb 2021 21:59:33 +0000
 
-cadexsdk (3.9.1-1ubuntu9) focal; urgency=medium
+cadexsdk (3.9.1-1ubuntu8) bionic; urgency=medium
 
   * Build-Depends libnglib-dev, Depends libnglib-6.2.1804
 
- -- Neil Roza <neil@rtr.ai>  Fri, 19 Feb 2021 15:54:49 +0000
-
-cadexsdk (3.9.1-1ubuntu7) focal; urgency=medium
-
-  * debhelper-compat 12
-
- -- Neil Roza <neil@rtr.ai>  Wed, 17 Feb 2021 19:01:16 +0000
+ -- Neil Roza <neil@rtr.ai>  Fri, 19 Feb 2021 00:21:01 +0000
 
 cadexsdk (3.9.1-1ubuntu6) bionic; urgency=medium
 
