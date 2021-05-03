@@ -1,15 +1,7 @@
 Source: cadexsdk
 Priority: optional
 Maintainer: Neil Roza <neil@rtr.ai>
-Build-Depends:
- debhelper (>= 11),
- libfreeimage-dev,
- libfreetype6-dev,
- libglvnd-dev,
- libtbb-dev,
- libx11-dev,
- qtbase5-dev,
- qtdeclarative5-dev,
+Build-Depends: debhelper (>= 11), libtbb-dev
 Standards-Version: 4.1.2
 Section: libs
 Homepage: https://cadexchanger.com/products/sdk
@@ -19,18 +11,7 @@ Vcs-Browser: https://github.com/RealtimeRobotics/cadexsdk.git
 Package: libcadexsdk3
 Architecture: amd64
 Multi-Arch: same
-Depends:
- ${misc:Depends},
- ${shlibs:Depends},
- libfreeimage3,
- libfreetype6,
- libgl1,
- libqt5core5a,
- libqt5gui5,
- libqt5qml5,
- libqt5quick5,
- libtbb2,
- libx11-6,
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: CAD Exchanger SDK (runtime files)
  Software Libraries to Read, Write and Visualize 3D CAD files
  .
