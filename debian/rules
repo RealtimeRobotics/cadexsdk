@@ -4,37 +4,23 @@
 # output every command that modifies files on the build system.
 export DH_VERBOSE = 1
 
-# Packages are listed in the order they appear in debian/control.
-# https://manpages.debian.org/dh_listpackages
-regpkg = $(word 1, $(shell dh_listpackages))
-devpkg = $(word 2, $(shell dh_listpackages))
-
-# see FEATURE AREAS in dpkg-buildflags(1)
-#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-
-# see ENVIRONMENT in dpkg-buildflags(1)
-# package maintainers to append CFLAGS
-#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
-# package maintainers to append LDFLAGS
-#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
-
 %:
 	dh $@
 
-override_dh_clean:
-
 override_dh_test:
+	@echo NOOP $@
 
 override_dh_build:
+	@echo NOOP $@
 
-override_dh_install:
+override_dh_auto_install:
 	mkdir -vp \
-		debian/$(regpkg)/usr/lib/$(DEB_HOST_MULTIARCH)
-	cp -vdR \
+		debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)
+	cp -va \
 		lin64/gcc7/lib/* \
-		debian/$(regpkg)/usr/lib/$(DEB_HOST_MULTIARCH)
+		debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)
 	mkdir -vp \
-		debian/$(devpkg)/usr/include
-	cp -vdR \
-		inc/cadex \
-		debian/$(devpkg)/usr/include
+		debian/tmp/usr/include/cadex
+	cp -va \
+		inc/cadex/* \
+		debian/tmp/usr/include/cadex
