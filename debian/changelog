@@ -1,3 +1,12 @@
+cadexsdk (3.9.1-3) bionic; urgency=medium
+
+  * rm -f debian/patches
+  * add debian/libcadexsdk-dev.install
+  * ed debian/control: clean up
+  * ed debian/*.install: +BRep,+OBJ,+Rhino,-IGESXDE,-STEPXDE
+
+ -- Neil Roza <neil@rtr.ai>  Wed, 05 May 2021 16:34:31 +0000
+
 cadexsdk (3.9.1-2) bionic; urgency=medium
 
   * debhelper-compat 12
