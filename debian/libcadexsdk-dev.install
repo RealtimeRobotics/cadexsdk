@@ -364,6 +364,7 @@ usr/include/cadex/X3D_WriterParameters.hxx
 usr/include/cadex/X3MF_Reader.hxx
 usr/include/cadex/X3MF_ReaderParameters.hxx
 usr/lib/*/libCadExACIS.so
+usr/lib/*/libCadExBRep.so
 usr/lib/*/libCadExCollada.so
 usr/lib/*/libCadExCore.so
 usr/lib/*/libCadExDXF.so
@@ -371,12 +372,12 @@ usr/lib/*/libCadExFBX.so
 usr/lib/*/libCadExGLTF.so
 usr/lib/*/libCadExIFC.so
 usr/lib/*/libCadExIGES.so
-usr/lib/*/libCadExIGESXDE.so
 usr/lib/*/libCadExJT.so
+usr/lib/*/libCadExOBJ.so
 usr/lib/*/libCadExPRC.so
 usr/lib/*/libCadExPara.so
+usr/lib/*/libCadExRhino.so
 usr/lib/*/libCadExSTEP.so
-usr/lib/*/libCadExSTEPXDE.so
 usr/lib/*/libCadExSTL.so
 usr/lib/*/libCadExU3D.so
 usr/lib/*/libCadExUSD.so
