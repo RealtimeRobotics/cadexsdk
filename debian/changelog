@@ -1,3 +1,9 @@
+cadexsdk (3.9.1-4) bionic; urgency=medium
+
+  * ed debian/control: add Conflicts: cadexsdk, cadexsdk-dev
+
+ -- Neil Roza <neil@rtr.ai>  Fri, 07 May 2021 00:30:47 +0000
+
 cadexsdk (3.9.1-3) bionic; urgency=medium
 
   * rm -f debian/patches
